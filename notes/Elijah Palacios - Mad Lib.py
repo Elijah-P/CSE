@@ -1,7 +1,7 @@
 # 10 words being taken
-num = input("Pick a number")
+num = input("Pick a number higher than 1")
 noun = input("Pick a place")
-verb = input("Pick a verb")
+verb = input("Pick a verb that ends with ing")
 noun2 = input("Pick a object")
 verb2 = input("pick something to do")
 verb3 = input("pick something to do")
@@ -9,6 +9,9 @@ type = input("Pick a type of day")
 check = input("Pick something to check")
 noun3 = input("Pick another object")
 noun4 = input("Pick one last thing")
+
+
+
 
 
 print("For like " +num+ " years me and my family always wanted me to go to "+noun+",so I had to live up to their")
