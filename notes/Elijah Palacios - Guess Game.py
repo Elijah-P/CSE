@@ -11,8 +11,6 @@ while loop != 5:
         loop += 1
     elif answer == a:
         print("You got the right number")
-        loop = 5
-    if loop == 5:
         print("You Win!")
-    if loop == 5:
-            print("You lose")
+    elif loop == 5:
+        print("You lose")
