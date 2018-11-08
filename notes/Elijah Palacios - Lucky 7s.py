@@ -1,12 +1,18 @@
 import random
 Money = 15
 Rounds = 0
-Dice1 = random.randint(1, 6)
-Dice2 = random.randint(1, 6)
-begin_game = input("Hello ready to gamble?")
+print("DOESN't matter what your response was, lets start!")
 
-if begin_game == "yes" or "Yes" or "Yea":
-     print("Ok lets start!")
-
-
-
+while Money > 0:
+    Dice1 = random.randint(1, 6)
+    Dice2 = random.randint(1, 6)
+    Money -= 1
+    total = Dice1 + Dice2
+    if total == 7:
+        Money += 5
+        Rounds += 1
+    else:
+        Money += 0
+        Rounds += 1
+    print("You have $%d" % Money)
+print("You lasted %d rounds" % Rounds)
