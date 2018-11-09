@@ -2,7 +2,7 @@ import random
 Money = 15
 Rounds = 0
 print("DOESN't matter what your response was, lets start!")
-
+maxMoney = list
 while Money > 0:
     Dice1 = random.randint(1, 6)
     Dice2 = random.randint(1, 6)
