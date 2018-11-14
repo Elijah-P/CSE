@@ -3,9 +3,8 @@ import random
 Money = 15
 Rounds = 0
 print("DOESN't matter what your response was, lets start!")
-# maxMoney_list = list()  # don't use list, find something better.
 Maxmoney = 0
-
+Round_most_money = 0
 timer = timeit.Timer()  # timing how long it takes to find maximum amount of money
 
 while Money > 0:
@@ -17,12 +16,14 @@ while Money > 0:
     if total == 7:
         Money += 5
         Rounds += 1
-        if Money
+        if Maxmoney < Money:
+            Maxmoney = Money
+            Round_most_money = Rounds
     else:
         Money += 0
         Rounds += 1
     print("You have $%d" % Money)
 print("You lasted %d rounds" % Rounds)
-# Maxmoney = max(maxMoney_list)
-print("The maximum amount of money you had was $%d" % Maxmoney)
+#  print("The maximum amount of money you had was $%d" % Maxmoney)
+print("The round you had the most money, which is $%d, was round %d" % (Maxmoney, Round_most_money))
 print(timeit.timeit())
