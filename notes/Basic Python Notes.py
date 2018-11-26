@@ -128,3 +128,36 @@ print(3 != 4)
 a = 3 # A is set to equal 3
 a == 3 # Is a equal to 3?
 """
+
+# LIST
+shopping_list = ["whole milk", "PC", "Eggs", "Switch"]
+print(shopping_list)
+print(shopping_list[0])
+print("The second thing in the list is %s" % shopping_list[1])
+print("The length of the list is %d" % len(shopping_list))
+
+# Changing elements in a list
+shopping_list[0] = "2% milk"
+print(shopping_list)
+print(shopping_list[0])
+
+# Looping through lists
+for item in shopping_list:
+    print(item)
+
+print("")
+
+games = ["Pokemon", "Zelda", "SmashBros", "Fortnite"]
+games[2] = "SuperMario"
+print(games[2])
+print(games)
+new_list = ["eggs", "cheese", "oranges", "raspberries"]
+new_list[2] = "apples"
+print("The last thing in the list is %s" % new_list[len(new_list) - 1])
+print(new_list)
+
+# Getting part of a list
+print(new_list[1:3])
+print(new_list[1:4])
+print(new_list[1:])
+print(new_list[:2])
