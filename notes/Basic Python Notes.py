@@ -161,3 +161,49 @@ print(new_list[1:3])
 print(new_list[1:4])
 print(new_list[1:])
 print(new_list[:2])
+
+# Adding things to a list
+holiday_list = []  # ALWAYS USE SQUARE BRACKETS
+holiday_list.append("Tacos")
+holiday_list.append("Bumblebee")
+holiday_list.append("Red Dead Redemption 2")
+print(holiday_list)
+# Notice this is object.method(parameters)
+
+# Removing things from a list
+holiday_list.remove("Tacos")
+print(holiday_list)
+
+christmas = ["tree", "santa", "snow"]
+christmas.append("Rudolph")
+christmas.remove("snow")
+print(christmas)
+
+# Also removing things from a list
+holiday_list.pop(0)  # Removes the item at index 0
+print(holiday_list)
+
+# Tuple
+brands = ("apple", "Samsung", "HTC")  # notice the parentheses
+
+colors = ['blue', 'cyan' 'red', 'green', 'orange', 'purple',
+          'pink', 'black', 'gold', 'magenta', 'brown', 'turquoise',
+          'white', 'gray', 'yellow']
+print(len(colors))
+
+# Find the index
+print(colors.index("gold"))
+
+# Changing things into a list
+string1 = "turquoise"
+list1 = list(string1)
+print(list1)
+
+for character in list1:
+    if character == "u":
+        # replace with a *
+        current_index = list1.index(character)
+        list1.pop(current_index)
+        list1.insert(current_index, "*")
+# Changing lists into strings
+print("".join(list1))
