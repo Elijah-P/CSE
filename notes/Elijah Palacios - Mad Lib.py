@@ -1,14 +1,14 @@
 # 10 words being taken
-num = input("Pick a number higher than 1")
-noun = input("Pick a place")
-verb = input("Pick a verb that ends with ing")
-noun2 = input("Pick a object")
-verb2 = input("pick something to do")
-verb3 = input("pick something to do")
-type = input("Pick a type of day")
-check = input("Pick something to check")
-noun3 = input("Pick another object")
-noun4 = input("Pick one last thing")
+num = input("Pick a number higher than 1")  # 0
+noun = input("Pick a place")  # 1
+verb = input("Pick a verb that ends with ing")  # 2
+noun2 = input("Pick a object")  # 3
+verb2 = input("pick something to do")  # 4
+verb3 = input("pick something to do")  # 5
+type = input("Pick a type of day")  # 6
+check = input("Pick something to check")  # 7
+noun3 = input("Pick another object")  # 8
+noun4 = input("Pick one last thing")  # 9
 
 
 
