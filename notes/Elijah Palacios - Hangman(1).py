@@ -1,23 +1,26 @@
 import random
 import string
-word = ["hangman", "school", "math", "physicaleducation", "name", "freshmen", "sophomore", "junior", "senior",
-        "college", "food", "pizza", "kerry", "delaney", "wiebe", "smashbros", "dancing", "computers", "united"]
-chosen_word = random.choice(word)
-list_Chosen_word = list(chosen_word)
+word = ["Hangman", "school", "math", "physicaleducation","Freshmen", "Sophomore", "Junior", "Senior", "college", "food",
+        "pizza", "Mr.Wiebe", "Smashbros", "dancing", "computers", "United States" "I am late for class"]
+Guesses_Left = 8
+Chosen_Word = random.choice(word)
+list_Chosen_word = list(Chosen_Word)
 hidden_word = []
 letters = list(string.ascii_lowercase)
+Users_Guessed_letters = []
 
 for i in range(len(list_Chosen_word)):
     hidden_word.append("_")
 print(hidden_word)
 
-for i in range(8):
+while Guesses_Left > 0:
     for each_letter in list_Chosen_word:
         users_pick = input("Pick a letter")
+        Users_Guessed_letters.append(users_pick)
         if users_pick == each_letter:
             current_index = hidden_word.index(users_pick)
             hidden_word.pop(current_index)
             hidden_word.insert(current_index, "")
             print(hidden_word)
-            i += 1
+            Guesses_Left -= 1
 
