@@ -5,22 +5,27 @@ word = ["Hangman", "school", "math", "physicaleducation","Freshmen", "Sophomore"
 Guesses_Left = 8
 Chosen_Word = random.choice(word)
 list_Chosen_word = list(Chosen_Word)
-hidden_word = []
 letters = list(string.ascii_lowercase)
+hidden_word = []
 Users_Guessed_letters = []
 
-for i in range(len(list_Chosen_word)):
+for letters_in_word in range(len(list_Chosen_word)):
     hidden_word.append("_")
 print(hidden_word)
 
 while Guesses_Left > 0:
-    for each_letter in list_Chosen_word:
-        users_pick = input("Pick a letter")
-        Users_Guessed_letters.append(users_pick)
-        if users_pick == each_letter:
-            current_index = hidden_word.index(users_pick)
-            hidden_word.pop(current_index)
-            hidden_word.insert(current_index, "")
-            print(hidden_word)
-            Guesses_Left -= 1
+    users_pick = input("Pick a letter")
+    Users_Guessed_letters.append(users_pick)
+    print(Users_Guessed_letters)
+    if users_pick in letters_in_word:
+        hidden_word.append(users_pick)
+    else:
+        print("It is not in the word")
+        Guesses_Left -= 1
+    print(hidden_word)
+
+
+
+
+
 
