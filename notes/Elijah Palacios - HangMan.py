@@ -1,7 +1,7 @@
 import random
 import string
-word = ["hangman", "school", "math", "physicaleducation", "name", "freshmen", "sophomore", "junior", "senior",
-        "college", "food", "pizza", "kerry", "delaney", "wiebe", "smashbros", "dancing", "computers", "united"]
+word = ["hangman", "school", "math", "physicaleducation", "freshmen", "sophomore", "junior", "senior",
+        "college", "food", "pizza", "smashbros", "dancing", "computers", "united"]
 chosen_word = random.choice(word)
 list_Chosen_word = list(chosen_word)
 hidden_word = []
