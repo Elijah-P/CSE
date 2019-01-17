@@ -17,7 +17,14 @@ while Guesses_Left > 0:
             hidden_word.append("_ ")
         else:
             hidden_word.append(letter)
+        if (",", ".", " ")in list_Chosen_word:
+            hidden_word.append()
+
     print("".join(hidden_word))
+
+    if hidden_word == list_Chosen_word:
+        Guesses_Left = 0
+        continue
 
     # Ask for input
     users_pick = input("Pick a letter")
@@ -27,4 +34,5 @@ while Guesses_Left > 0:
     # Check to see if the letters are in the word
     if users_pick not in list_Chosen_word:
         Guesses_Left -= 1
-    
+
+
