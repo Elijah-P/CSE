@@ -9,6 +9,7 @@ letters = list(string.ascii_lowercase)
 
 Users_Guessed_letters = []
 
+
 while Guesses_Left > 0:
     # Hides / Reveal Letters based on user guesses
     hidden_word = []
@@ -17,11 +18,8 @@ while Guesses_Left > 0:
             hidden_word.append("_ ")
         else:
             hidden_word.append(letter)
-        if (",", ".", " ")in list_Chosen_word:
-            hidden_word.append()
 
     print("".join(hidden_word))
-
     if hidden_word == list_Chosen_word:
         Guesses_Left = 0
         continue
@@ -30,6 +28,11 @@ while Guesses_Left > 0:
     users_pick = input("Pick a letter")
     Users_Guessed_letters.append(users_pick)
     print(Users_Guessed_letters)
+    if users_pick is users_pick.upper():
+        users_pick = users_pick.upper()
+    else:
+        users_pick = users_pick.lower()
+
 
     # Check to see if the letters are in the word
     if users_pick not in list_Chosen_word:
