@@ -1,7 +1,7 @@
 import random
 import string
-word = ["Hangman", "school", "math", "physicaleducation", "Freshmen", "Sophomore", "Junior", "Senior", "college",
-        "pizza", "Mr.Wiebe", "Smashbros", "dancing", "computers", "United States", "I am late for class"]
+word = ["Hangman", "School", "Math", "Physical Education", "Freshmen", "Sophomore", "Junior", "Senior", "College",
+        "Pizza", "Mr.Wiebe", "Smashbros", "Dancing", "Computers", "United States", "I am late for class"]
 Guesses_Left = 8
 Chosen_Word = random.choice(word)
 list_Chosen_word = list(Chosen_Word)
@@ -14,7 +14,11 @@ while Guesses_Left > 0:
     # Hides / Reveal Letters based on user guesses
     hidden_word = []
     for letter in list_Chosen_word:
-        if letter not in Users_Guessed_letters:
+        if "." in letter:
+            current_index = list_Chosen_word.index(".")
+            hidden_word.insert()
+
+        if letter.upper() not in Users_Guessed_letters:
             hidden_word.append("_ ")
         else:
             hidden_word.append(letter)
@@ -28,10 +32,6 @@ while Guesses_Left > 0:
     users_pick = input("Pick a letter")
     Users_Guessed_letters.append(users_pick)
     print(Users_Guessed_letters)
-    if users_pick is users_pick.upper():
-        users_pick = users_pick.upper()
-    else:
-        users_pick = users_pick.lower()
 
 
     # Check to see if the letters are in the word
