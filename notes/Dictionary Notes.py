@@ -82,4 +82,24 @@ complex_dictonary = {
         ]
     }
 }
+
 print(complex_dictonary["RI"]["CITIES"][2])
+
+print(complex_dictonary["VA"]["NAME"])
+print(complex_dictonary["MD"]["CITIES"][0])
+
+print(complex_dictonary.keys())
+print(nested_dictonary.items())
+
+print()
+for key, value in complex_dictonary.items():
+    print(key)
+    print(value)
+    print("-" * 20)
+
+for state, facts in complex_dictonary.items():
+    for attr, value in facts.items():
+        print(attr)
+        print(value)
+        print("-" * 20)
+    print("=" * 20)
