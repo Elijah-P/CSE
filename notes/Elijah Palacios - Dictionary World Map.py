@@ -1,19 +1,41 @@
 world_map = {
-    "R19A": {
-        "NAME": "Wiebe's Classroom",
-        "DESCRIPTION": "This is the classroom that you are in right now. "
-                       "It has two exits to the north side.",
+    "CENTER": {
+        "NAME": "Center of The World.",
+        "DESCRIPTION": "This is the center of the current world you're in. "
+                       "There are 4 different paths visible.",
         "PATHS": {
-            "NORTH": "PARKING_LOT"
-
+            "NORTH": "ZELDA",
+            "EAST": "MARIO",
+            "SOUTH": "RANDOM",
+            "WEST": "POKEMON",
+            "UP": "GOD",
+            "DOWN": "CAVE"
         }
     },
-    "PARKING_LOT": {
-        "NAME": "The Edison Parking Lot.",
-        "DESCRIPTION": "There are cars parked here. "
-                       "To the south is Mr.Wiebe's room.",
+    "ZELDA": {
+        "NAME": "Hyrule castle.",
+        "DESCRIPTION": "In the Zelda world. "
+                       "In front of hyrule castle.",
         "PATHS": {
-            "SOUTH": "R19A"
+            "NORTH": "TOWER"
         }
     }
 }
+
+# Other Variables
+current_node = world_map["CENTER"]
+directions = ["NORTH", "SOUTH", "EAST", "WEST", "UP", "DOWN"]
+playing = True
+
+# Controller
+while playing:
+    print(current_node["NAME"])
+    command = input(">_")
+    if command.lower() in ["q", "quit", "exit"]:
+        playing = False
+    elif command.upper() in directions:
+        try:
+            room_name = current_node["PATHS"][command.upper()]
+            current_node = world_map[room_name]
+        except KeyError:
+            print("I can't go that way.")
