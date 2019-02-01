@@ -1,20 +1,22 @@
 world_map = {
     "CENTER": {
         "NAME": "Center of The World.",
-        "DESCRIPTION": "This is the center of the current world you're in. "
-                       "There are 4 different paths visible.",
+        "DESCRIPTION": "A 10K TV is in front of you with SmashBros on. "
+                       "There are 8 open spots to play, but no controllers. "
+                       "There are 4 different ways to go.",
         "PATHS": {
-            "NORTH": "ZELDA",
-            "EAST": "MARIO",
+            "NORTH": "FOREST",
+            "EAST": "PORTAL",
             "SOUTH": "RANDOM",
-            "WEST": "POKEMON",
+            "WEST": "DESERT",
             "UP": "GOD",
             "DOWN": "CAVE"
         }
     },
-    "ZELDA": {
-        "NAME": "Hyrule castle.",
-        "DESCRIPTION": "In the Zelda world. "
+    ""
+    "PATH2FOREST": {
+        "NAME": "ENTRANCE TO FOREST",
+        "DESCRIPTION": "There is a sign saying, "Beware of 
                        "In front of hyrule castle.",
         "PATHS": {
             "NORTH": "TOWER"
@@ -30,6 +32,7 @@ playing = True
 # Controller
 while playing:
     print(current_node["NAME"])
+    print(current_node["DESCRIPTION"])
     command = input(">_")
     if command.lower() in ["q", "quit", "exit"]:
         playing = False
@@ -41,4 +44,3 @@ while playing:
             print("I can't go that way.")
     else:
         print("Command Not Recognized")
-        
