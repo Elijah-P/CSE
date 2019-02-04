@@ -13,14 +13,35 @@ world_map = {
             "DOWN": "CAVE"
         }
     },
-    ""
-    "PATH2FOREST": {
-        "NAME": "ENTRANCE TO FOREST",
-        "DESCRIPTION": "There is a sign saying, "Beware of 
-                       "In front of hyrule castle.",
+    "PORTAL": {
+        "NAME": "Entrance to portal.",
+        "DESCRIPTION": "A weird portal(looking like a nether portal from minecraft). "
+                       "You feel a cold breeze coming from the other side.",
         "PATHS": {
-            "NORTH": "TOWER"
+            "EAST": "MOUNTAINS.",
+            "WEST": "CENTER"
         }
+    },
+    "FOREST": {
+        "NAME": "Entrance to Forest. ",
+        "DESCRIPTION": "There is a sign saying, 'D-NT -ET -OST.' "
+                       "Letters are missing on the sign. Fog surrounds the entrance.",
+        "PATHS": {
+            "NORTH": "INSIDE FOREST",
+            "SOUTH": "CENTER"
+        }
+    },
+    "INSIDE FOREST": {
+        "NAME": "Inside the Forest.",
+        "DESCRIPTION": "There are 3 paths. "
+                       "You hear a roaring noise from the northern path",
+        "PATHS": {
+            "NORTH": "BOSS",
+            "EAST": "LOST WOODS",
+            "SOUTH": "FOREST",
+            "WEST": "DUNGEON"
+        }
+
     }
 }
 
