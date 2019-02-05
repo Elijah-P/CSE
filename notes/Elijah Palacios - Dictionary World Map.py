@@ -22,6 +22,41 @@ world_map = {
             "WEST": "CENTER"
         }
     },
+    "MOUNTAINS": {
+        "NAME": "Middle of snowy mountain",
+        "DESCRIPTION": "The portal led to the middle of a mountain. "
+                       "You see the peak and base of the mountain. "
+                       "You also see a cavern east.",
+        "PATHS": {
+            "NORTH": "PEAK OF MOUNTAIN",
+            "EAST": "CAVERN",
+            "SOUTH": "BASE OF MOUNTAIN",
+            "WEST": "PORTAL"
+        }
+    },
+    "PEAK OF MOUNTAIN": {
+        "NAME": "Peak of the Snowy Mountain.",
+        "DESCRIPTION": "You climbed up the mountain. "
+                       "Your index finger is purple.",
+        "PATHS": {
+            "SOUTH": "MOUNTAINS"
+        }
+    },
+    "CAVERN": {
+        "NAME": "Inside the cavern",
+        "DESCRIPTION": "You see this buff, ripped Pikachu behind the counter. "
+                       "It is the owner of this shop. "
+                       "It yells 'PIKA PIKA' in a deep voice.",
+        "PATHS": {
+            "WEST": "MOUNTAINS"
+        }
+    },
+    "BASE OF MOUNTAIN": {
+        "NAME": "The base of the Snowy Mountain."
+        ""
+    },
+
+
     "FOREST": {
         "NAME": "Entrance to Forest. ",
         "DESCRIPTION": "There is a sign saying, 'D-NT -ET -OST.' "
@@ -42,6 +77,32 @@ world_map = {
             "WEST": "DUNGEON"
         }
 
+    },
+    "LOST WOODS": { # WORK LATER
+        "NAME": "Lost Woods",
+        "DESCRIPTION": "There are a lot of paths. "
+                       "Seems like if you go the wrong way you'll be brought back to the entrance",
+        "PATHS": {
+            "WEST": "INSIDE FOREST"
+        }
+    },
+    "DUNGEON": {
+        "NAME": "Dungeon",
+        "DESCRIPTION": "You're inside a dark somewhat smelly dungeon."
+                       " Careful, traps might be here",
+        "PATHS": {
+            "EAST": "INSIDE FOREST"
+
+        }
+    },
+    "BOSS": {
+        "NAME": "Boss Room.",
+        "DESCRIPTION": "You see a big ogre. "
+                       "He is breathing heavily and has a wound on his leg.",
+        "PATHS": {
+            "NORTH": "CHEST",
+            "SOUTH": "INSIDE FOREST"
+        }
     }
 }
 
