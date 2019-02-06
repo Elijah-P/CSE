@@ -18,7 +18,7 @@ world_map = {
         "DESCRIPTION": "A weird portal(looking like a nether portal from minecraft). "
                        "You feel a cold breeze coming from the other side.",
         "PATHS": {
-            "EAST": "MOUNTAINS.",
+            "EAST": "MOUNTAINS",
             "WEST": "CENTER"
         }
     },
@@ -46,17 +46,20 @@ world_map = {
         "NAME": "Inside the cavern",
         "DESCRIPTION": "You see this buff, ripped Pikachu behind the counter. "
                        "It is the owner of this shop. "
-                       "It yells 'PIKA PIKA' in a deep voice.",
+                       "It yells 'PIKA PIKA' in a deep voice. "
+                       "You see a horse.",
         "PATHS": {
             "WEST": "MOUNTAINS"
         }
     },
     "BASE OF MOUNTAIN": {
-        "NAME": "The base of the Snowy Mountain."
-        ""
+        "NAME": "The base of the Snowy Mountain.",
+        "DESCRIPTION": "You climbed down the mountain. "
+                       "You see an entrance with a staircase leading down.",
+        "BASE": {
+            "NORTH": "MOUNTAINS"
+        }
     },
-
-
     "FOREST": {
         "NAME": "Entrance to Forest. ",
         "DESCRIPTION": "There is a sign saying, 'D-NT -ET -OST.' "
@@ -86,7 +89,7 @@ world_map = {
             "WEST": "INSIDE FOREST"
         }
     },
-    "DUNGEON": {
+    "DUNGEON": { # WORK LATER
         "NAME": "Dungeon",
         "DESCRIPTION": "You're inside a dark somewhat smelly dungeon."
                        " Careful, traps might be here",
@@ -103,6 +106,25 @@ world_map = {
             "NORTH": "CHEST",
             "SOUTH": "INSIDE FOREST"
         }
+    },
+    "CHEST": {
+        "NAME": "In front of treasure chest",
+        "DESCRIPTION": "After killing the ogre, you are in front of a chest. "
+                       "It is creaked open.",
+        "PATHS": {
+            "SOUTH": "BOSS"
+        }
+    },
+    "DESERT": {
+        "NAME": "Desert",
+        "DESCRIPTION": "You walked far enough and are now in a desert. "
+                       "It's really hot and you could possibly die staying in here to long.",
+        "PATHS": {
+            "NORTH": "PYRAMID",
+            "EAST":  "CENTER",
+            "SOUTH": "OASIS",
+            "WEST": "CACTUS"
+        }
     }
 }
 
@@ -116,6 +138,8 @@ while playing:
     print(current_node["NAME"])
     print(current_node["DESCRIPTION"])
     command = input(">_")
+    if current_node == world_map['CHEST']: # HSHSH
+        world_map["BOSS"]["DESCRIPTION"] = "Boss is dead" # JHHDHSB
     if command.lower() in ["q", "quit", "exit"]:
         playing = False
     elif command.upper() in directions:
