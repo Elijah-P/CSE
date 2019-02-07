@@ -47,7 +47,7 @@ world_map = {
         "DESCRIPTION": "You see this buff, ripped Pikachu behind the counter. "
                        "It is the owner of this shop. "
                        "It yells 'PIKA PIKA' in a deep voice. "
-                       "You see a horse.",
+                       "You see a horse. It looks wounded.",
         "PATHS": {
             "WEST": "MOUNTAINS"
         }
@@ -56,7 +56,7 @@ world_map = {
         "NAME": "The base of the Snowy Mountain.",
         "DESCRIPTION": "You climbed down the mountain. "
                        "You see an entrance with a staircase leading down.",
-        "BASE": {
+        "PATHS": {
             "NORTH": "MOUNTAINS"
         }
     },
@@ -120,10 +120,70 @@ world_map = {
         "DESCRIPTION": "You walked far enough and are now in a desert. "
                        "It's really hot and you could possibly die staying in here to long.",
         "PATHS": {
-            "NORTH": "PYRAMID",
+            "NORTH": "FRONT OF PYRAMID",
             "EAST":  "CENTER",
             "SOUTH": "OASIS",
             "WEST": "CACTUS"
+        }
+    },
+    "OASIS": {
+        "NAME": "???",
+        "DESCRIPTION": "You have reached a place filled with water and trees."
+                       "You have the urge to jump in. Just got to go south...",
+        "PATHS": {
+           "SOUTH": "SPIKES",
+           "NORTH": "DESERT"
+        }
+    },
+    "SPIKES": {
+        "NAME": "Spikes/Ded",
+        "DESCRIPTION": "You died after jumping into the 'water', but can't be blamed. "
+                       "You were dizzy, super hot, wanted water to satisfy you. Sadly you died."
+                       "No one will miss you, and this adventure is over super quickly."
+                       "Ha. Ha. HAAAAAaaa..."
+                       "OK time to try again."
+    },
+    "CACTUS": {
+        "NAME": "In front of a cactus",
+        "DESCRIPTION": "You are in front of a totally normal cactus.",
+        "PATHS": {
+            "EAST": "DESERT"
+        }
+    },
+    "FRONT OF PYRAMID": {
+        "NAME": "In front of Upside down Pyramid",
+        "DESCRIPTION": "You see the entrance but can enter it. "
+                       "The door seems slammed shut, but no where to open it."
+                       "Oh well? Might as well go back..",
+        "PATHS": {
+            "SOUTH": "DESERT",
+            "EAST": "RIGHT OF PYRAMID",
+            "WEST": "LEFT OF PYRAMID",
+            "NORTH": "INSIDE PYRAMID"
+        }
+    },
+    "RIGHT OF PYRAMID": {
+        "NAME": "Right of pyramid",
+        "DESCRIPTION": "There is nothing unordinary here.",
+        "PATHS": {
+            "WEST": "FRONT OF PYRAMID",
+            "EAST": "BACK OF PYRAMID"
+        }
+    },
+    "LEFT OF PYRAMID": {
+        "NAME": "Left of pyramid",
+        "DESCRIPTION": "There is nothing unordinary here.",
+        "PATHS": {
+            "WEST": "BACK OF PYRAMID",
+            "EAST": "FRONT OF PYRAMID"
+        }
+    },
+    "BACK OF PYRAMID": {
+        "NAME": "Back of Pyramid",
+        "DESCRIPTION": "There is nothing unordinary here.",
+        "PATHS": {
+            "WEST": "RIGHT OF PYRAMID",
+            "EAST": "LEFT OF PYRAMID"
         }
     }
 }
