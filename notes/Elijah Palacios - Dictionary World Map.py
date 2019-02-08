@@ -152,7 +152,8 @@ world_map = {
     },
     "FRONT OF PYRAMID": {
         "NAME": "In front of Upside down Pyramid",
-        "DESCRIPTION": "You see the entrance but can enter it. "
+        "DESCRIPTION": "The pyramid is somewhat buried inside the sand."
+                       "You see the entrance but can't enter it. "
                        "The door seems slammed shut, but no where to open it."
                        "Oh well? Might as well go back..",
         "PATHS": {
@@ -160,6 +161,43 @@ world_map = {
             "EAST": "RIGHT OF PYRAMID",
             "WEST": "LEFT OF PYRAMID",
             "NORTH": "INSIDE PYRAMID"
+        }
+    },
+    "INSIDE PYRAMID": {
+        "NAME": "Inside the pyramid",
+        "DESCRIPTION": "Surprisingly you're inside and it's actually pretty dull."
+                       "You see ladders around leading 'UP' to a hole in the ceiling."
+                       "Looks like a lot of floors.",
+        "PATHS": {
+            "EAST": "P1"
+        }
+    },
+    "P1": {
+        "NAME": "Inside the pyramid",
+        "DESCRIPTION": "",
+        "PATHS": {
+            "UP": "P2"
+        }
+    },
+    "P2": {
+        "NAME": "Inside the pyramid",
+        "DESCRIPTION": "",
+        "PATHS": {
+            "NORTH": "P3"
+        }
+    },
+    "P3": {
+        "NAME": "Inside the pyramid",
+        "DESCRIPTION": "",
+        "PATHS": {
+            "WEST": "P4"
+        }
+    },
+    "P4": {
+        "NAME": "Inside the pyramid",
+        "DESCRIPTION": "",
+        "PATHS": {
+            "UP": "P5"
         }
     },
     "RIGHT OF PYRAMID": {
