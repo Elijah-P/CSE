@@ -12,7 +12,8 @@
     <SUITE FILE_PATH="coverage/CSE$Dictionary_Notes.coverage" NAME="Dictionary Notes Coverage Results" MODIFIED="1548951916244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___Hangman_1_.coverage" NAME="Elijah Palacios - Hangman(1) Coverage Results" MODIFIED="1548777865279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___HangMan.coverage" NAME="Elijah Palacios - HangMan Coverage Results" MODIFIED="1547483187637" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
-    <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___Dictionary_World_Map.coverage" NAME="Elijah Palacios - Dictionary World Map Coverage Results" MODIFIED="1549557205010" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
+    <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___Dictionary_World_Map.coverage" NAME="Elijah Palacios - Dictionary World Map Coverage Results" MODIFIED="1550074088877" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
+    <SUITE FILE_PATH="coverage/CSE$Object_Notes.coverage" NAME="Object Notes Coverage Results" MODIFIED="1550074850588" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Semester_2_Notes.coverage" NAME="Semester 2 Notes Coverage Results" MODIFIED="1547136605739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
   </component>
   <component name="DatabaseView">
@@ -33,7 +34,7 @@
     <session id="1435689263">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="24" />
+          <entry key="project.closed" value="26" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.32" value="1" />
@@ -42,6 +43,7 @@
           <entry key="project.open.time.35" value="1" />
           <entry key="project.open.time.36" value="2" />
           <entry key="project.open.time.37" value="2" />
+          <entry key="project.open.time.38" value="1" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.50" value="1" />
@@ -53,27 +55,27 @@
           <entry key="project.open.time.72" value="1" />
           <entry key="project.open.time.74" value="1" />
           <entry key="project.open.time.76" value="1" />
-          <entry key="project.opened" value="25" />
+          <entry key="project.opened" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="16" />
+          <entry key="py" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="16" />
+          <entry key="Python" value="17" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="py" value="12639" />
+          <entry key="py" value="13003" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Python" value="12639" />
+          <entry key="Python" value="13003" />
         </counts>
       </usages-collector>
     </session>
@@ -95,8 +97,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - Dictionary World Map.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="180" column="6" lean-forward="true" selection-start-line="180" selection-start-column="6" selection-end-line="180" selection-end-column="6" />
+            <state relative-caret-position="3060">
+              <caret line="180" column="6" selection-start-line="180" selection-start-column="6" selection-end-line="180" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -104,8 +106,21 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/notes/Object Notes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+            <state relative-caret-position="34">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/notes/Special_Random.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="102">
+              <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+              <folding>
+                <marker date="1550075691957" expanded="true" signature="52:53" ph="..." />
+                <marker date="1550075691957" expanded="true" signature="52:57" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,6 +146,7 @@
         <option value="$PROJECT_DIR$/notes/Elijah Palacios - Hangman(1).py" />
         <option value="$PROJECT_DIR$/notes/Dictionary Notes.py" />
         <option value="$PROJECT_DIR$/notes/Elijah Palacios - Dictionary World Map.py" />
+        <option value="$PROJECT_DIR$/notes/Special_Random.py" />
         <option value="$PROJECT_DIR$/notes/Object Notes.py" />
       </list>
     </option>
@@ -173,7 +189,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/notes" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -188,7 +204,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Elijah Palacios - Dictionary World Map">
+  <component name="RunManager" selected="Python.Object Notes">
     <configuration name="Dictionary Notes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CSE" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -277,7 +293,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Semester 2 Notes" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="Object Notes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CSE" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -290,7 +306,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/notes/Semester 2 Notes.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/notes/Object Notes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -301,18 +317,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.Elijah Palacios - HangMan" />
-      <item itemvalue="Python.Semester 2 Notes" />
       <item itemvalue="Python.Elijah Palacios - Hangman(1)" />
       <item itemvalue="Python.Dictionary Notes" />
       <item itemvalue="Python.Elijah Palacios - Dictionary World Map" />
+      <item itemvalue="Python.Object Notes" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Object Notes" />
         <item itemvalue="Python.Elijah Palacios - Dictionary World Map" />
         <item itemvalue="Python.Dictionary Notes" />
         <item itemvalue="Python.Elijah Palacios - Hangman(1)" />
         <item itemvalue="Python.Elijah Palacios - HangMan" />
-        <item itemvalue="Python.Semester 2 Notes" />
       </list>
     </recent_temporary>
   </component>
@@ -342,7 +358,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4819672" weight="0.33963692" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4819672" visible="true" weight="0.33963692" />
       <window_info id="Structure" order="1" sideWeight="0.5180328" side_tool="true" weight="0.30030257" />
       <window_info id="Favorites" order="2" sideWeight="0.50491804" side_tool="true" weight="0.26172465" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -426,15 +442,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - Dictionary World Map.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="180" column="6" lean-forward="true" selection-start-line="180" selection-start-column="6" selection-end-line="180" selection-end-column="6" />
+        <state relative-caret-position="3060">
+          <caret line="180" column="6" selection-start-line="180" selection-start-column="6" selection-end-line="180" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes/Special_Random.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="36" lean-forward="true" selection-start-line="6" selection-start-column="36" selection-end-line="6" selection-end-column="36" />
+          <folding>
+            <marker date="1550075691957" expanded="true" signature="52:53" ph="..." />
+            <marker date="1550075691957" expanded="true" signature="52:57" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/notes/Object Notes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+        <state relative-caret-position="34">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
