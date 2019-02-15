@@ -11,7 +11,7 @@ class Controller(object):
             print("You grabbed the controller realizing you need to work out more because it is too heavy.")
         else:
             print("You wanted to play a game, but too lazy and don't want to pick up the controller.")
-            
+
     def press_button(self):
         self.buttons = True
         print("You press the buttons in a random way, because you don't know how to play games.")

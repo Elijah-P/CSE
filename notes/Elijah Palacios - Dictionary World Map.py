@@ -7,10 +7,10 @@ world_map = {
         "PATHS": {
             "NORTH": "FOREST",
             "EAST": "PORTAL",
-            "SOUTH": "RANDOM",
+            "SOUTH": "RANDOM",  # NOT MADE YET
             "WEST": "DESERT",
-            "UP": "GOD",
-            "DOWN": "CAVE"
+            "UP": "GOD",    # NOT MADE YET
+            "DOWN": "CAVE"  # NOT MADE YET
         }
     },
     "PORTAL": {
@@ -61,7 +61,7 @@ world_map = {
         }
     },
     "FOREST": {
-        "NAME": "Entrance to Forest. ",
+        "NAME": "Entrance to Forest.",
         "DESCRIPTION": "There is a sign saying, 'D-NT -ET -OST.' "
                        "Letters are missing on the sign. Fog surrounds the entrance.",
         "PATHS": {
@@ -200,6 +200,13 @@ world_map = {
             "UP": "P5"
         }
     },
+    "P5": {
+        "NAME": "Inside the pyramid",
+        "DESCRIPTION": "",
+        "PATHS": {
+            "NORTH": "P6"
+        }
+    },
     "RIGHT OF PYRAMID": {
         "NAME": "Right of pyramid",
         "DESCRIPTION": "There is nothing unordinary here.",
@@ -236,8 +243,8 @@ while playing:
     print(current_node["NAME"])
     print(current_node["DESCRIPTION"])
     command = input(">_")
-    if current_node == world_map['CHEST']: # HSHSH
-        world_map["BOSS"]["DESCRIPTION"] = "Boss is dead" # JHHDHSB
+    if current_node == world_map['CHEST']: # CHANGING DESCRIPTION
+        world_map["BOSS"]["DESCRIPTION"] = "Boss is dead"  # BOSSES ^
     if command.lower() in ["q", "quit", "exit"]:
         playing = False
     elif command.upper() in directions:
