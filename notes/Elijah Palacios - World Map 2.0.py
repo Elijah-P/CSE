@@ -81,18 +81,37 @@ Cactus = Room("In front of a cactus", None, "Desert", None, None, None, None,
               "You are in front of a totally normal cactus.")
 
 Front_of_Pyramid = Room("In front of Upside down Pyramid", "Inside_pyramid", "Right_of_Pyramid", "Desert",
-                        "Left_of_pyramid", None, None,
+                        "Left_of_Pyramid", None, None,
                         "The pyramid is somewhat buried inside the sand."
                         "You see the entrance but can't enter it. "
                         "The door seems slammed shut, but no where to open it."
                         "Oh well? Might as well go back..")
 
-Inside_pyramid = Room("Inside the Pyramid", None, "P1", None, None, None, None,
+Right_of_Pyramid = Room("Right of Pyramid", None, "Back_of_Pyramid", None, "Front_of_Pyramid", None, None, "")
+
+Left_of_Pyramid = Room("Left of Pyramid", None, "Front_of_Pyramid", None, "Back_of_Pyramid", None, None, "")
+
+Back_of_Pyramid = Room("Back of Pyramid", None, "Left_of_Pyramid", None, "Right_of_Pyramid", None, None, "")
+
+Inside_pyramid = Room("Inside the Pyramid", None, "P1", "Front_of_Pyramid", None, None, None,
                       "Surprisingly you're inside and it's actually pretty dull."
                       "You see ladders around leading 'UP' to a hole in the ceiling."
                       "Looks like a lot of floors.")
 
-P1 = Room("Inside the Pyramid", None, None, None,)
+P1 = Room("Inside the Pyramid", None, None, None, "Inside_pyramid", "P2", None, "")
+
+P2 = Room("Inside the Pyramid", "P3", None, None, None, None, "P1", "")
+
+P3 = Room("Inside the Pyramid", None, None, "P2", "P4", None, None, "")
+
+P4 = Room("Inside the Pyramid", None, "P3", None, None, "P5", None, "")
+
+P5 = Room("Inside the Pyramid", "P6", None, None, None, None, "P4", "")
+
+P6 = Room("Inside the Pyramid", None, None, "P5", None, "Top_of_Pyramid", None, "")
+
+Top_of_Pyramid = Room("Top of Pyramid", None, None, None, None, None, "P6",
+                      "You are on top of the upside down pyramid, weird. You see the game controller in front of you.")
 
 current_node = center
 print(current_node.name)
