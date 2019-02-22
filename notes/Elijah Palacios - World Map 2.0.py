@@ -46,13 +46,29 @@ inside_forest = Room("Inside the Forest.", "Boss", "Lost_Woods", "Forest", "Dung
                      "There are 3 paths. "
                      "You hear a roaring noise from the northern path")
 
-Lost_Woods = Room("Lost Woods", None, None, None, "inside_forest", None, None,
+Lost_Woods = Room("Lost Woods", None, "L1", None, "inside_forest", None, None,
                   "There are a lot of paths. "
                   "Seems like if you go the wrong way you'll be brought back to the entrance")
 
+L1 = Room("Lost Woods", "Lost_Woods", "L2", "Lost_Woods", "Lost_Woods", None, None, "")
+
+L2 = Room("Lost Woods", "Lost_Woods", "Lost_Woods", "L3", "Lost_Woods", None, None, "")
+
+L3 = Room("Lost Woods", "L4", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None, "")
+
+L4 = Room("Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "L5", None, None, "")
+
+L5 = Room("Lost Woods", "Lost_Woods", "Lost_Woods", "L6", "Lost_Woods", None, None, "")
+
+L6 = Room("Lost Woods", "L7", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None, "")
+
+L7 = Room("End of Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None,
+          "You have found a key on the floor, could be used somewhere else here in the forest. "
+          "To leave, you assume you can take any direction to be taken back to the entrance of the lost woods.")
+
 Dungeon = Room("Dungeon", None, "inside_forest", None, None, None, None,
                "You're inside a dark somewhat smelly dungeon."
-               " Careful, traps might be here")
+               " Careful, traps might be here. To go through you would need a key to enter.")
 
 Boss = Room("Boss Room.", "Chest", None, "inside_forest", None, None, None,
             "You see a big ogre. "
@@ -64,7 +80,8 @@ Chest = Room("In front of treasure chest", None, None, "Boss", None, None, None,
 
 Desert = Room("Desert", "Front_of_Pyramid", "Center", "Oasis", "Cactus", None, None,
               "You walked far enough and are now in a desert. "
-              "It's really hot and you could possibly die staying in here to long.")
+              "It's really hot and you could possibly die staying in here to long."
+              "You would need some type of animal to travel through the desert without dying of exhaustion")
 
 Oasis = Room("???", "Desert", None, "Spikes", None, None, None,
              "You have reached a place filled with water and trees."
@@ -111,7 +128,9 @@ P5 = Room("Inside the Pyramid", "P6", None, None, None, None, "P4", "")
 P6 = Room("Inside the Pyramid", None, None, "P5", None, "Top_of_Pyramid", None, "")
 
 Top_of_Pyramid = Room("Top of Pyramid", None, None, None, None, None, "P6",
-                      "You are on top of the upside down pyramid, weird. You see the game controller in front of you.")
+                      "You are on top of the upside down pyramid, weird. You see the game controller in front of you."
+                      "To get down there are two ways. You can go through the pyramid, or jump into this pool you see "
+                      "at the very bottom. It looks deep enough to survive.")
 
 current_node = center
 print(current_node.name)

@@ -2,7 +2,7 @@ world_map = {
     "CENTER": {
         "NAME": "Center of The World.",
         "DESCRIPTION": "A 10K TV is in front of you with SmashBros on. "
-                       "There are 8 open spots to play, but no controllers. "
+                       "There are 4 open spots to play, but no controllers. "
                        "There are 4 different ways to go.",
         "PATHS": {
             "NORTH": "FOREST",
@@ -118,7 +118,8 @@ world_map = {
     "DESERT": {
         "NAME": "Desert",
         "DESCRIPTION": "You walked far enough and are now in a desert. "
-                       "It's really hot and you could possibly die staying in here to long.",
+                       "It's really hot and you could possibly die staying in here to long."
+                       "You would need some type of animal to travel through the desert without dying of exhaustion",
         "PATHS": {
             "NORTH": "FRONT OF PYRAMID",
             "EAST":  "CENTER",
