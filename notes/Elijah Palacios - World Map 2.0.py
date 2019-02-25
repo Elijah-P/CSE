@@ -69,6 +69,33 @@ L7 = Room("End of Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_W
 Dungeon = Room("Dungeon", None, "inside_forest", None, None, None, None,
                "You're inside a dark somewhat smelly dungeon."
                " Careful, traps might be here. To go through you would need a key to enter.")
+                       #
+D1 = Room("Dungeon", "D3", "D6", None, "D4", None, None, "You see that there are three teleporters here, one to the"
+                                                         " north, east, and west")
+
+D2 = Room("Dungeon", "D7", "D5", None, "D6", None, None, "You see that there are three teleporters here, one to the"
+                                                         " north, east, and west")
+                                        #
+D3 = Room("Dungeon", "D1", "D8", None, "D5", None, None, "You see that there are three teleporters here, one to the"
+                                                         " north, east, and west")
+
+D4 = Room("Dungeon", "D7", "D2", None, "D6", None, None, "You see that there are three teleporters here, one to the"
+                                                         " north, east, and west")
+                            #
+D5 = Room("Dungeon", "D3", "D7", None, "D1", None, None, "You see that there are three teleporters here, one to the"
+                                                         " north, east, and west")
+
+D6 = Room("Dungeon", "D1", "D8", None, "D2", None, None, "You see that there are three teleporters here, one to the"
+                                                         " north, east, and west")
+                       #
+D7 = Room("Dungeon", "D8", "D4", None, "D2", None, None, "You see that there are three teleporters here, one to the"
+                                                         " north, east, and west")
+                                  #
+D8 = Room("Dungeon", "D3", "D5", "D9", "D4", None, None, "You see that there are three teleporters here, one to the"
+                                                         " north, east, and west")
+
+D9 = Room("Dungeon", "inside_forest", None, None, None, None, None, "You see that there are three teleporters here, one to the"
+                                                         " north, east, and west")
 
 Boss = Room("Boss Room.", "Chest", None, "inside_forest", None, None, None,
             "You see a big ogre. "
