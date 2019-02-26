@@ -10,6 +10,21 @@ class Room(object):
         self.description = description
 
 
+class Player(object):
+    def __init__(self, starting_location):
+        self.health = 100
+        self.current_location = starting_location
+        self.inventory = []
+        self.damage = 999
+
+    def move(self, newlocation):
+        """
+
+        :param newlocation: The variable containing a room object
+        """
+        self.current_location = newlocation
+
+
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
               "A 10K TV is in front of you with SmashBros on. "
               "There are 8 open spots to play, but no controllers. "
@@ -159,5 +174,34 @@ Top_of_Pyramid = Room("Top of Pyramid", None, None, None, None, None, "P6",
                       "To get down there are two ways. You can go through the pyramid, or jump into this pool you see "
                       "at the very bottom. It looks deep enough to survive.")
 
-current_node = center
-print(current_node.name)
+#current_node = center
+#print(current_node.name)
+
+player = Player(center)
+
+
+playing = True
+directions = ["north", "south", "east", "west", "up", "down"]
+
+# Controller
+while playing:
+    print(player.current_location.name)
+    print(player.current_location.description)
+    command = input(">_")
+#   if current_node == world_map['CHEST']: # CHANGING DESCRIPTION
+#    world_map["BOSS"]["DESCRIPTION"] = "Boss is dead"  # BOSSES ^
+    if command.lower() in ["q", "quit", "exit"]:
+        playing = False
+    elif command.lower() in directions:
+        try:
+            # command = "north"
+            room_object = getattr(player.current_location, command)
+
+            # NEEDED FOR OPTION 2
+            room_var = globals()[room_object]
+
+            player.move(room_var)
+        except KeyError:
+            print("I can't go that way.")
+    else:
+        print("Command Not Recognized")
