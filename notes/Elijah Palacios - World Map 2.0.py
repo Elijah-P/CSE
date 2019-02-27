@@ -8,6 +8,7 @@ class Room(object):
         self.up = up
         self.down = down
         self.description = description
+        self.entity = []
 
 
 class Player(object):
@@ -24,6 +25,14 @@ class Player(object):
         """
         self.current_location = newlocation
 
+
+class boss(object):
+    def __init__(self, description):
+        self.health = 200
+        self.description = description
+
+
+pig = boss("piglafer")
 
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
               "A 10K TV is in front of you with SmashBros on. "
@@ -65,17 +74,17 @@ Lost_Woods = Room("Lost Woods", None, "L1", None, "inside_forest", None, None,
                   "There are a lot of paths. "
                   "Seems like if you go the wrong way you'll be brought back to the entrance")
 
-L1 = Room("Lost Woods", "Lost_Woods", "L2", "Lost_Woods", "Lost_Woods", None, None, "")
+L1 = Room("Lost_Woods", "Lost_Woods", "L2", "Lost_Woods", "Lost_Woods", None, None, "")
 
-L2 = Room("Lost Woods", "Lost_Woods", "Lost_Woods", "L3", "Lost_Woods", None, None, "")
+L2 = Room("Lost_Woods", "Lost_Woods", "Lost_Woods", "L3", "Lost_Woods", None, None, "")
 
-L3 = Room("Lost Woods", "L4", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None, "")
+L3 = Room("Lost_Woods", "L4", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None, "")
 
-L4 = Room("Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "L5", None, None, "")
+L4 = Room("Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "L5", None, None, "")
 
-L5 = Room("Lost Woods", "Lost_Woods", "Lost_Woods", "L6", "Lost_Woods", None, None, "")
+L5 = Room("Lost_Woods", "Lost_Woods", "Lost_Woods", "L6", "Lost_Woods", None, None, "")
 
-L6 = Room("Lost Woods", "L7", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None, "")
+L6 = Room("Lost_Woods", "L7", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None, "")
 
 L7 = Room("End of Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None,
           "You have found a key on the floor, could be used somewhere else here in the forest. "
@@ -174,17 +183,15 @@ Top_of_Pyramid = Room("Top of Pyramid", None, None, None, None, None, "P6",
                       "To get down there are two ways. You can go through the pyramid, or jump into this pool you see "
                       "at the very bottom. It looks deep enough to survive.")
 
-#current_node = center
-#print(current_node.name)
-
 player = Player(center)
-
+Boss.entity = [pig]
 
 playing = True
 directions = ["north", "south", "east", "west", "up", "down"]
 
 # Controller
 while playing:
+    print(player.current_location.entity)
     print(player.current_location.name)
     print(player.current_location.description)
     command = input(">_")
@@ -195,13 +202,13 @@ while playing:
     elif command.lower() in directions:
         try:
             # command = "north"
-            room_object = getattr(player.current_location, command)
+            room_name = getattr(player.current_location, command)
+            room_object = globals()[room_name]
 
-            # NEEDED FOR OPTION 2
-            room_var = globals()[room_object]
-
-            player.move(room_var)
+            player.move(room_object)
         except KeyError:
             print("I can't go that way.")
+        except AttributeError:
+            print("This does not exist")
     else:
         print("Command Not Recognized")
