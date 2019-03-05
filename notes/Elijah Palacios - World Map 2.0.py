@@ -93,6 +93,7 @@ L7 = Room("End of Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_W
 Dungeon = Room("Dungeon", None, "inside_forest", None, None, None, None,
                "You're inside a dark somewhat smelly dungeon."
                " Careful, traps might be here. To go through you would need a key to enter.")
+# Path is D3, D5, D7, D8, D9
                        #
 D1 = Room("Dungeon", "D3", "D6", None, "D4", None, None, "You see that there are three teleporters here, one to the"
                                                          " north, east, and west")
@@ -118,8 +119,8 @@ D7 = Room("Dungeon", "D8", "D4", None, "D2", None, None, "You see that there are
 D8 = Room("Dungeon", "D3", "D5", "D9", "D4", None, None, "You see that there are three teleporters here, one to the"
                                                          " north, east, and west")
 
-D9 = Room("Dungeon", "inside_forest", None, None, None, None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
+D9 = Room("Dungeon", "inside_forest", None, None, None, None, None, "You see that there are three teleporters here, one"
+                                                                    " to the north, east, and west")
 
 Boss = Room("Boss Room.", "Chest", None, "inside_forest", None, None, None,
             "You see a big ogre. "

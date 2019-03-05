@@ -5,8 +5,8 @@ class Vehicle(object):
 
 
 class Car(Vehicle):
-    def __init__(self, name, engine_type, body_type):
-        super(Car, self).__init__(name, engine_type)
+    def __init__(self, name, engine_type2, body_type):
+        super(Car, self).__init__(name, engine_type2)
         self.body_type = body_type
         self.steering_wheel = True
         self.engine_status = False  # Because the engine is off
