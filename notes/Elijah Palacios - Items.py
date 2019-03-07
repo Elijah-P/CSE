@@ -1,7 +1,24 @@
+import time
 class Item(object):
     def __init__(self, name, description):
         self.name = name
         self.description = description
+
+class Shop(object):
+    def __init__(self):
+
+class Horse(Item):
+    def __init__(self, name, description, speed):
+        super(Horse, self).__init__(name, description)
+        self.speed = speed
+
+    def ChangeSpeed(self):
+        self.speed 
+
+class BlackHorse(Horse):
+    def __init__(self):
+        super(BlackHorse, self).__init__("Roger", "He is black and seems stubborn. Reminds you of pigs...", speed = 5)
+
 
 
 class Key(Item):
@@ -35,6 +52,6 @@ class ProController(Controller):
 
 
 my_key = Key()
-my_GamecubeController = GamecubeController
-my_Joycons = Joycons
-my_ProController = ProController
+my_GamecubeController = GamecubeController()
+my_Joycons = Joycons()
+my_ProController = ProController()
