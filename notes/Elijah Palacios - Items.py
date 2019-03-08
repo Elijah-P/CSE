@@ -1,32 +1,60 @@
-import time
 class Item(object):
     def __init__(self, name, description):
         self.name = name
         self.description = description
 
-class Shop(object):
-    def __init__(self):
+
+class Switches(Item):
+    def __init__(self, name, description):
+        super(Switches, self).__init__(name, description)
+        self.switch = False
+
+    def turn_on(self):
+        self.switch = True
+
+    def 
+
+
+class Interactable(Item):
+    def __init__(self, name, description):
+        super(Interactable, self).__init__(name, description)
+
 
 class Horse(Item):
     def __init__(self, name, description, speed):
         super(Horse, self).__init__(name, description)
         self.speed = speed
 
-    def ChangeSpeed(self):
-        self.speed 
+    def go_faster(self):
+        self.speed += 10
+
+    def go_slower(self):
+        self.speed -= 10
+
 
 class BlackHorse(Horse):
     def __init__(self):
-        super(BlackHorse, self).__init__("Roger", "He is black and seems stubborn. Reminds you of pigs...", speed = 5)
+        super(BlackHorse, self).__init__("Roger", "He is black and seems stubborn. Reminds you of pigs...", speed=50)
 
 
+class WhiteHorse(Horse):
+    def __init__(self):
+        super(WhiteHorse, self).__init__("Tyrone", "He is white and seems stuck up. Reminds you of a hairless cats...",
+                                         speed=30)
 
-class Key(Item):
+
+class GoldenHorse(Horse):
+    def __init__(self):
+        super(GoldenHorse, self).__init__("Charles", "He is golden and seems really lazy. Reminds you of a person who "
+                                                     "lives in their parents basement...", speed=0)
+
+
+class Key(Interactable):
     def __init__(self):
         super(Key, self).__init__("Key", "Can be used to unlock doors")
 
 
-class Controller(Item):
+class Controller(Interactable):
     def __init__(self, name, description, color, controller_type):
         super(Controller, self).__init__(name, description)
         self.color = color
@@ -55,3 +83,24 @@ my_key = Key()
 my_GamecubeController = GamecubeController()
 my_Joycons = Joycons()
 my_ProController = ProController()
+my_blackhorse = BlackHorse()
+my_whitehorse = WhiteHorse()
+my_goldenhorse = GoldenHorse()
+
+command = input(">_")
+if "pick up" in command:
+    item_name = command[8:]
+    found_item = None
+    for thing in room.items:
+        if thing.name == item_name:
+            found_item = thing
+    if isinstance(found_item, Interactable):
+        print("You pick up the " + item_name)
+        player.inventory.append(found_item)
+    elif found_item is None:
+        print("You don't see one here")
+    else:
+        print("You can't pick it up")
+
+
+"pick up key"
