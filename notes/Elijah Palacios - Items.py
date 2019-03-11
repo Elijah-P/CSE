@@ -4,6 +4,11 @@ class Item(object):
         self.description = description
 
 
+class Interactable(Item):
+    def __init__(self, name, description):
+        super(Interactable, self).__init__(name, description)
+
+
 class Switches(Item):
     def __init__(self, name, description):
         super(Switches, self).__init__(name, description)
@@ -12,12 +17,8 @@ class Switches(Item):
     def turn_on(self):
         self.switch = True
 
-    def 
-
-
-class Interactable(Item):
-    def __init__(self, name, description):
-        super(Interactable, self).__init__(name, description)
+    def turn_off(self):
+        self.switch = False
 
 
 class Horse(Item):
@@ -30,6 +31,40 @@ class Horse(Item):
 
     def go_slower(self):
         self.speed -= 10
+
+
+class Weapon(Interactable):
+    def __init__(self, name, description, damage):
+        super(Weapon, self).__init__(name, description)
+        self.damage = damage
+
+
+class Sword(Weapon):
+    def __init__(self):
+        super(Sword, self).__init__("Excalibur", "The legendary sword Excalibur", 999)
+
+    def swing_sword(self):
+        ogre -= 999
+
+
+class Knife(Weapon):
+    def __init__(self):
+        super(Knife, self).__init__("Knife", "Can be swung faster and thrown", 50)
+
+    def stab(self):
+        ogre -= 50
+
+    def throw(self):
+        ogre -= 100
+
+class 
+
+
+
+class Catcus(Switches):
+    def __init__(self):
+        super(Catcus, self).__init__("Cactus", "Total ordinary cactus. Though there does look like a lever is "
+                                               "attached, maybe you could flip it..")
 
 
 class BlackHorse(Horse):
@@ -86,6 +121,7 @@ my_ProController = ProController()
 my_blackhorse = BlackHorse()
 my_whitehorse = WhiteHorse()
 my_goldenhorse = GoldenHorse()
+Cactus = Catcus()
 
 command = input(">_")
 if "pick up" in command:

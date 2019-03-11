@@ -32,7 +32,7 @@ class Bigboss(object):
         self.description = description
 
 
-pig = Bigboss("piglafer")
+ogre = Bigboss("Shrek")
 
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
               "A 10K TV is in front of you with SmashBros on. "
@@ -185,7 +185,7 @@ Top_of_Pyramid = Room("Top of Pyramid", None, None, None, None, None, "P6",
                       "at the very bottom. It looks deep enough to survive.")
 
 player = Player(center)
-Boss.entity = [pig]
+Boss.entity = [ogre]
 
 playing = True
 directions = ["north", "south", "east", "west", "up", "down"]
