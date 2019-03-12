@@ -3,6 +3,32 @@ class Item(object):
         self.name = name
         self.description = description
 
+class building(object):
+    def __init__(self, name):
+        self.name = name
+
+
+class shop(building):
+    def __init__(self, name):
+        super(shop, self).__init__(name)
+        self.storage = {}
+
+    def ask_list(self):
+        print("Welcome to my shop, buy something.")
+        command = input(">")
+        if command in ["buy", "b", "purchase"]:
+            print("Here's what we have")
+            for item in self.storage:
+                print(self.storage[item]["Name"] + "-" + str(self.storage[item]["Cost"]) + "$")
+            input("I want to buy >")
+        elif command in ["sell", "s"]:
+            print("What do you want to sell?")
+            input(">")
+
+class HorseShop(shop):
+    def __init__(self, name):
+        super(HorseShop, self).__init__(name)
+        self.storage
 
 class Interactable(Item):
     def __init__(self, name, description):
@@ -34,14 +60,21 @@ class Horse(Item):
 
 
 class Weapon(Interactable):
-    def __init__(self, name, description, damage):
+    def __init__(self, name, description):
         super(Weapon, self).__init__(name, description)
-        self.damage = damage
+
+
+class BoxingGloves(Interactable):
+    def __init__(self):
+        super(BoxingGloves, self).__init__("Boxing Gloves", "Use them to punch harder")
+
+    def punch(self):
+        ogre -= 10
 
 
 class Sword(Weapon):
     def __init__(self):
-        super(Sword, self).__init__("Excalibur", "The legendary sword Excalibur", 999)
+        super(Sword, self).__init__("Excalibur", "The legendary sword Excalibur")
 
     def swing_sword(self):
         ogre -= 999
@@ -49,16 +82,21 @@ class Sword(Weapon):
 
 class Knife(Weapon):
     def __init__(self):
-        super(Knife, self).__init__("Knife", "Can be swung faster and thrown", 50)
+        super(Knife, self).__init__("Knife", "Can be swung faster and thrown")
 
     def stab(self):
-        ogre -= 50
+        ogre -= 20
 
     def throw(self):
-        ogre -= 100
+        ogre -= 50
 
-class 
 
+class BowAndArrow:
+    def __init__(self):
+        super(BowAndArrow, self).__init__("Bow and Arrow", "Can be shot.")
+
+    def shoot(self):
+        ogre -= 15
 
 
 class Catcus(Switches):
@@ -122,6 +160,11 @@ my_blackhorse = BlackHorse()
 my_whitehorse = WhiteHorse()
 my_goldenhorse = GoldenHorse()
 Cactus = Catcus()
+my_sword = Sword()
+my_knife = Knife()
+my_bow = BowAndArrow()
+my_gloves = BoxingGloves()
+
 
 command = input(">_")
 if "pick up" in command:
