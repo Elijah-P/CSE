@@ -11,6 +11,41 @@ class Room(object):
         self.entity = []
 
 
+class Item(object):
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description
+
+
+class Interactable(Item):
+    def __init__(self, name, description):
+        super(Interactable, self).__init__(name, description)
+
+
+class Weapon(Interactable):
+    def __init__(self, name, description, damage):
+        super(Weapon, self).__init__(name, description)
+        self.damage = damage
+
+
+class Character(object):
+    def __init__(self, name, health, weapon, armor):
+        self.name = name
+        self.health = health
+        self.weapon = weapon
+        self.armor = armor
+
+    def take_damage(self, damage):
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+        print("%s has %d health left" % (self.name, self.health))
+
+    def attack(self, target):
+        target.take_damage(self.weapon.damage)
+        print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
+
+
 class Player(object):
     def __init__(self, starting_location):
         self.health = 100
@@ -31,6 +66,15 @@ class Bigboss(object):
         self.health = 200
         self.description = description
 
+
+# items
+sword = Weapon("Sword", "", 15)
+sword2 = Weapon("Sword", "", 20)
+
+
+# Characters
+C1 = Character("Orc1", 100, sword, None)
+C2 = Character("Orc2", 100, sword, None)
 
 ogre = Bigboss("Shrek")
 
@@ -184,8 +228,11 @@ Top_of_Pyramid = Room("Top of Pyramid", None, None, None, None, None, "P6",
                       "To get down there are two ways. You can go through the pyramid, or jump into this pool you see "
                       "at the very bottom. It looks deep enough to survive.")
 
-player = Player(center)
+# player = Player(center)
 Boss.entity = [ogre]
+
+#players
+player = Player(center)
 
 playing = True
 directions = ["north", "south", "east", "west", "up", "down"]

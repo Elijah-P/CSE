@@ -3,14 +3,15 @@ class Item(object):
         self.name = name
         self.description = description
 
-class building(object):
+
+class Building(object):
     def __init__(self, name):
         self.name = name
 
 
-class shop(building):
+class Shop(Building):
     def __init__(self, name):
-        super(shop, self).__init__(name)
+        super(Shop, self).__init__(name)
         self.storage = {}
 
     def ask_list(self):
@@ -25,10 +26,25 @@ class shop(building):
             print("What do you want to sell?")
             input(">")
 
-class HorseShop(shop):
+
+class HorseShop(Shop):
     def __init__(self, name):
         super(HorseShop, self).__init__(name)
-        self.storage
+        self.storage = {
+            "stock1": {
+                "Name": my_blackhorse.name,
+                "Cost": 15
+            },
+            "Stock2": {
+                "Name": my_whitehorse.name,
+                "Cost": 20
+            },
+            "Stock3": {
+                "Name": my_goldenhorse,
+                "Cost": 30
+            }
+        }
+
 
 class Interactable(Item):
     def __init__(self, name, description):
@@ -64,7 +80,7 @@ class Weapon(Interactable):
         super(Weapon, self).__init__(name, description)
 
 
-class BoxingGloves(Interactable):
+class BoxingGloves(Weapon):
     def __init__(self):
         super(BoxingGloves, self).__init__("Boxing Gloves", "Use them to punch harder")
 
@@ -164,7 +180,7 @@ my_sword = Sword()
 my_knife = Knife()
 my_bow = BowAndArrow()
 my_gloves = BoxingGloves()
-
+my_shop = HorseShop()
 
 command = input(">_")
 if "pick up" in command:
