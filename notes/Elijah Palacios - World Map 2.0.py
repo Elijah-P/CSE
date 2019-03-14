@@ -1,3 +1,5 @@
+items = __import__("Elijah Palacios - Items")
+
 class Room(object):
     def __init__(self, name, north, east, south, west, up, down, description):
         self.name = name
@@ -46,11 +48,14 @@ class Character(object):
         print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
 
 
+MonayB = items.Monay()
+
+
 class Player(object):
     def __init__(self, starting_location):
         self.health = 100
         self.current_location = starting_location
-        self.inventory = []
+        self.inventory = [MonayB]
         self.damage = 999
 
     def move(self, newlocation):
@@ -59,6 +64,15 @@ class Player(object):
         :param newlocation: The variable containing a room object
         """
         self.current_location = newlocation
+
+    def gather_monay(self):
+        for entity in self.current_location.entity:
+            if "Monay" in self.current_location.entity:
+                MonayB.count += 1
+                self.current_location.entity.pop(entity)
+
+
+
 
 
 class Bigboss(object):

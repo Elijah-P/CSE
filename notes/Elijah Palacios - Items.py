@@ -21,7 +21,12 @@ class Shop(Building):
             print("Here's what we have")
             for item in self.storage:
                 print(self.storage[item]["Name"] + "-" + str(self.storage[item]["Cost"]) + "$")
-            input("I want to buy >")
+            wish_item = input("I want to buy >")
+            for i in self.storage:
+                if wish_item in self.storage:
+                    if
+
+
         elif command in ["sell", "s"]:
             print("What do you want to sell?")
             input(">")
@@ -50,6 +55,25 @@ class Interactable(Item):
     def __init__(self, name, description):
         super(Interactable, self).__init__(name, description)
 
+
+class Currency(Interactable):
+    def __init__(self, name, description):
+        super(Currency, self).__init__(name, description)
+
+
+class Monay(Currency):
+    def __init__(self):
+        super(Currency, self).__init__("Monay", "Can be used at a shop")
+        self.count = 0
+
+class HealingItem(Interactable):
+    def __init__(self, name, description):
+        super(HealingItem, self).__init__(name, description)
+
+
+class Bandaids(HealingItem):
+    def __init__(self):
+        super(Bandaids, self).__init__("BandAids", "Can heal your health")
 
 class Switches(Item):
     def __init__(self, name, description):
@@ -180,7 +204,11 @@ my_sword = Sword()
 my_knife = Knife()
 my_bow = BowAndArrow()
 my_gloves = BoxingGloves()
-my_shop = HorseShop()
+my_shop = HorseShop("Pikachu Horse Shop")
+Money = Monay()
+healing = Bandaids()
+
+
 
 command = input(">_")
 if "pick up" in command:
