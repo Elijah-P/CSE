@@ -14,23 +14,6 @@ class Shop(Building):
         super(Shop, self).__init__(name)
         self.storage = {}
 
-    def ask_list(self):
-        print("Welcome to my shop, buy something.")
-        command = input(">")
-        if command in ["buy", "b", "purchase"]:
-            print("Here's what we have")
-            for item in self.storage:
-                print(self.storage[item]["Name"] + "-" + str(self.storage[item]["Cost"]) + "$")
-            wish_item = input("I want to buy >")
-            for i in self.storage:
-                if wish_item in self.storage:
-                    if
-
-
-        elif command in ["sell", "s"]:
-            print("What do you want to sell?")
-            input(">")
-
 
 class HorseShop(Shop):
     def __init__(self, name):
@@ -108,35 +91,25 @@ class BoxingGloves(Weapon):
     def __init__(self):
         super(BoxingGloves, self).__init__("Boxing Gloves", "Use them to punch harder")
 
-    def punch(self):
-        ogre -= 10
 
 
 class Sword(Weapon):
     def __init__(self):
         super(Sword, self).__init__("Excalibur", "The legendary sword Excalibur")
 
-    def swing_sword(self):
-        ogre -= 999
 
 
 class Knife(Weapon):
     def __init__(self):
         super(Knife, self).__init__("Knife", "Can be swung faster and thrown")
 
-    def stab(self):
-        ogre -= 20
-
-    def throw(self):
-        ogre -= 50
-
 
 class BowAndArrow:
     def __init__(self):
         super(BowAndArrow, self).__init__("Bow and Arrow", "Can be shot.")
 
-    def shoot(self):
-        ogre -= 15
+
+
 
 
 class Catcus(Switches):
@@ -210,20 +183,4 @@ healing = Bandaids()
 
 
 
-command = input(">_")
-if "pick up" in command:
-    item_name = command[8:]
-    found_item = None
-    for thing in room.items:
-        if thing.name == item_name:
-            found_item = thing
-    if isinstance(found_item, Interactable):
-        print("You pick up the " + item_name)
-        player.inventory.append(found_item)
-    elif found_item is None:
-        print("You don't see one here")
-    else:
-        print("You can't pick it up")
 
-
-"pick up key"
