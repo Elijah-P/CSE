@@ -1,5 +1,5 @@
 class Room(object):
-    def __init__(self, name, north, east, south, west, up, down, description, item):
+    def __init__(self, name, north, east, south, west, up, down, description, item=None):
         self.name = name
         self.north = north
         self.east = east
@@ -9,7 +9,6 @@ class Room(object):
         self.down = down
         self.description = description
         self.item = item
-
 
 class Item(object):
     def __init__(self, name, description):
@@ -42,12 +41,6 @@ class Shop(Building):
             for i in self.storage:
                 if wish_item in self.storage:
 
-
-
-
-        elif command in ["sell", "s"]:
-            print("What do you want to sell?")
-            input(">")
 
 class HorseShop(Shop):
     def __init__(self, name):
@@ -129,6 +122,10 @@ class BowAndArrow(Weapon):
     def __init__(self):
         super(BowAndArrow, self).__init__("Bow and Arrow", "Can be shot.", 15)
 
+class AXE(Weapon):
+    def __init__(self):
+        super(AXE, self).__init__("A powerful Axe", "Can be swung with immense power", 100)
+# SWITCH
 class Catcus(Switches):
     def __init__(self):
         super(Catcus, self).__init__("Cactus", "Total ordinary cactus. Though there does look like a lever is "
@@ -194,13 +191,25 @@ class Character(object):
         target.take_damage(self.weapon.damage)
         print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
 
-
 class Player(object):
-    def __init__(self, starting_location):
+    def __init__(self, name, health, weapon, starting_location):
+        self.name = name
+        self.health = health
+        self.weapon = weapon
         self.health = 100
         self.current_location = starting_location
         self.inventory = []
         self.damage = 999
+
+    def take_damage(self, damage):
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+        print("%s has %d health left" % (self.name, self.health))
+
+    def attack(self, target):
+        target.take_damage(self.weapon.damage)
+        print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
 
     def move(self, newlocation):
         """
@@ -215,27 +224,23 @@ class Player(object):
                 #MonayB.count += 1
                 self.current_location.entity.pop(entity)
 
-
 class Bigboss(object):
-    def __init__(self, description):
-        self.health = 200
-        self.description = description
+    def __init__(self, name, health, weapon, description):
+            self.name = name
+            self.health = health
+            self.weapon = weapon
+            self.description = description
 
-#class Item(object):
-    #def __init__(self, name, description):
-        #self.name = name
-        #self.description = description
+    def take_damage(self, damage):
+        self.health -= damage
+        if self.health < 0:
+            self.health = 0
+            print("%s has %d health left" % (self.name, self.health))
 
+    def attack(self, target):
+        target.take_damage(self.weapon.damage)
+        print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
 
-#class Interactable(Item):
-    #def __init__(self, name, description):
-        #super(Interactable, self).__init__(name, description)
-
-
-#class Weapon(Interactable):
-    #def __init__(self, name, description, damage):
-        #super(Weapon, self).__init__(name, description)
-        #self.damage = damage
 
 # items
 my_key = Key()
@@ -249,21 +254,17 @@ secret_Cactus = Catcus()
 my_sword = Sword()
 my_knife = Knife()
 my_bow = BowAndArrow()
+my_axe = AXE()
 my_gloves = BoxingGloves()
 my_shop = HorseShop("Pikachu Horse Shop")
 Money = Monay()
 healing = Bandaids()
 
-# items
-#sword = Weapon("Sword", "", 15)
-#sword2 = Weapon("Sword", "", 20)
-
-
 # Characters
 #C1 = Character("Orc1", 100, sword, None)
 #C2 = Character("Orc2", 100, sword, None)
 
-ogre = Bigboss("Shrek")
+ogre = Bigboss("Shrek", 300, my_axe, "Looks like Shrek,..ugly.")
 
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
               "A 10K TV is in front of you with SmashBros on. "
@@ -277,11 +278,11 @@ portal = Room("Entrance to portal.", None, "mountains", None, "center", None, No
 mountains = Room("Middle of snowy mountain", "peak_of_mountain", "cavern", "base_of_mountain", "portal", None, None,
                  "The portal led to the middle of a mountain. "
                  "You see the peak and base of the mountain. "
-                 "You also see a cavern east.", item=[my+])
+                 "You also see a cavern east.",)
 
 peak_of_mountain = Room("Peak of The Snowy Mountain", None, None, "mountains", None, None, None,
                         "You climbed up the mountain. "
-                        "Your index finger is purple.")
+                        "Your index finger is purple.", my_ProController)
 
 cavern = Room("Inside the cavern", None, None, None, "mountains", None, None,
               "You see this buff, ripped Pikachu behind the counter. "
@@ -319,7 +320,7 @@ L6 = Room("Lost_Woods", "L7", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, No
 
 L7 = Room("End of Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None,
           "You have found a key on the floor, could be used somewhere else here in the forest. "
-          "To leave, you assume you can take any direction to be taken back to the entrance of the lost woods.")
+          "To leave, you assume you can take any direction to be taken back to the entrance of the lost woods.", my_key)
 
 Dungeon = Room("Dungeon", None, "inside_forest", None, None, None, None,
                "You're inside a dark somewhat smelly dungeon."
@@ -359,7 +360,7 @@ Boss = Room("Boss Room.", "Chest", None, "inside_forest", None, None, None,
 
 Chest = Room("In front of treasure chest", None, None, "Boss", None, None, None,
              "After killing the ogre, you are in front of a chest. "
-             "It is creaked open.")
+             "It is creaked open.", my_Joycons)
 
 Desert = Room("Desert", "Front_of_Pyramid", "Center", "Oasis", "Cactus", None, None,
               "You walked far enough and are now in a desert. "
@@ -378,7 +379,7 @@ Spikes = Room("Spikes/Ded", None, None, None, None, None, None,
               "OK time to try again.")
 
 Cactus = Room("In front of a cactus", None, "Desert", None, None, None, None,
-              "You are in front of a totally normal cactus.")
+              "You are in front of a totally normal cactus.", secret_Cactus)
 
 Front_of_Pyramid = Room("In front of Upside down Pyramid", "Inside_pyramid", "Right_of_Pyramid", "Desert",
                         "Left_of_Pyramid", None, None,
@@ -413,10 +414,9 @@ P6 = Room("Inside the Pyramid", None, None, "P5", None, "Top_of_Pyramid", None, 
 Top_of_Pyramid = Room("Top of Pyramid", None, None, None, None, None, "P6",
                       "You are on top of the upside down pyramid, weird. You see the game controller in front of you."
                       "To get down there are two ways. You can go through the pyramid, or jump into this pool you see "
-                      "at the very bottom. It looks deep enough to survive.")
+                      "at the very bottom. It looks deep enough to survive.", my_GamecubeController)
 
 Boss.entity = [ogre]
-
 # players
 player = Player(center)
 
@@ -424,20 +424,7 @@ playing = True
 directions = ["north", "south", "east", "west", "up", "down"]
 
 
-command = input(">_")
-if "pick up" in command:
-    item_name = command[8:]
-    found_item = None
-    for thing in player.current_location.item:
-        if thing.name == item_name:
-            found_item = thing
-    if isinstance(found_item, Interactable):
-        print("You pick up the " + item_name)
-        player.inventory.append(found_item)
-    elif found_item is None:
-        print("You don't see one here")
-    else:
-        print("You can't pick it up")
+
 
 # Controller
 while playing:
@@ -460,5 +447,18 @@ while playing:
             print("I can't go that way.")
         except AttributeError:
             print("This does not exist")
+    elif "pick up" in command:
+        item_name = command[8:]
+        found_item = None
+        for thing in player.current_location.item:
+            if thing.name == item_name:
+                found_item = thing
+        if isinstance(found_item, Interactable):
+            print("You pick up the " + item_name)
+            player.inventory.append(found_item)
+        elif found_item is None:
+            print("You don't see one here")
+        else:
+            print("You can't pick it up")
     else:
         print("Command Not Recognized")
