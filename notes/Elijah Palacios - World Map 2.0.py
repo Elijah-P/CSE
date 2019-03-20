@@ -1,5 +1,5 @@
 class Room(object):
-    def __init__(self, name, north, east, south, west, up, down, description, item=None):
+    def __init__(self, name, north, east, south, west, up, down, description, item=None, money=0, enemy=None):
         self.name = name
         self.north = north
         self.east = east
@@ -9,15 +9,20 @@ class Room(object):
         self.down = down
         self.description = description
         self.item = item
+        self.money = money
+        self.enemy = enemy
+
 
 class Item(object):
     def __init__(self, name, description):
         self.name = name
         self.description = description
 
+
 class Interactable(Item):
     def __init__(self, name, description):
         super(Interactable, self).__init__(name, description)
+
 
 class Building(object):
     def __init__(self, name):
@@ -25,59 +30,65 @@ class Building(object):
 
 # SHOP
 
-class Shop(Building):
-    def __init__(self, name):
-        super(Shop, self).__init__(name)
-        self.storage = {}
+# class Shop(Building):
+#     def __init__(self, name):
+#         super(Shop, self).__init__(name)
+#         self.storage = {}
+#
+#     def ask_list(self, target):
+#         print("Welcome to my shop, buy something.")
+#         command = input(">")
+#         if command in ["buy", "b", "purchase"]:
+#             print("Here's what we have")
+#             for item in self.storage:
+#                 print(self.storage[item]["Name"] + "-" + str(self.storage[item]["Cost"]) + "$")
+#             wish_item = input("I want to buy >")
+#             for i in self.storage:
+#                 if wish_item in self.storage:
 
-    def ask_list(self, target):
-        print("Welcome to my shop, buy something.")
-        command = input(">")
-        if command in ["buy", "b", "purchase"]:
-            print("Here's what we have")
-            for item in self.storage:
-                print(self.storage[item]["Name"] + "-" + str(self.storage[item]["Cost"]) + "$")
-            wish_item = input("I want to buy >")
-            for i in self.storage:
-                if wish_item in self.storage:
 
-
-class HorseShop(Shop):
-    def __init__(self, name):
-        super(HorseShop, self).__init__(name)
-        self.storage = {
-            "stock1": {
-                "Name": my_blackhorse.name,
-                "Cost": 15
-            },
-            "Stock2": {
-                "Name": my_whitehorse.name,
-                "Cost": 20
-            },
-            "Stock3": {
-                "Name": my_goldenhorse,
-                "Cost": 30
-            }
-        }
+# class HorseShop(Shop):
+#     def __init__(self, name):
+#         super(HorseShop, self).__init__(name)
+#         self.storage = {
+#             "stock1": {
+#                 "Name": my_blackhorse.name,
+#                 "Cost": 15
+#             },
+#             "Stock2": {
+#                 "Name": my_whitehorse.name,
+#                 "Cost": 20
+#             },
+#             "Stock3": {
+#                 "Name": my_goldenhorse,
+#                 "Cost": 30
+#             }
+#         }
 
 #######
 class Currency(Interactable):
     def __init__(self, name, description):
         super(Currency, self).__init__(name, description)
 
+
 class Monay(Currency):
     def __init__(self):
         super(Currency, self).__init__("Monay", "Can be used at a shop")
         self.count = 0
+
 #########
 # HEALING
+
+
 class HealingItem(Interactable):
     def __init__(self, name, description):
         super(HealingItem, self).__init__(name, description)
 
+
 class Bandaids(HealingItem):
     def __init__(self):
         super(Bandaids, self).__init__("BandAids", "Can heal your health")
+
 
 class Switches(Item):
     def __init__(self, name, description):
@@ -90,6 +101,7 @@ class Switches(Item):
     def turn_off(self):
         self.switch = False
 
+
 class Horse(Item):
     def __init__(self, name, description, speed):
         super(Horse, self).__init__(name, description)
@@ -101,79 +113,98 @@ class Horse(Item):
     def go_slower(self):
         self.speed -= 10
 # WEAPONS
+
+
 class Weapon(Interactable):
     def __init__(self, name, description, damage):
         super(Weapon, self).__init__(name, description)
         self.damage = damage
 
+
 class BoxingGloves(Weapon):
     def __init__(self):
         super(BoxingGloves, self).__init__("Boxing Gloves", "Use them to punch harder", 10)
+
 
 class Sword(Weapon):
     def __init__(self):
         super(Sword, self).__init__("Excalibur", "The legendary sword Excalibur", 999)
 
+
 class Knife(Weapon):
     def __init__(self):
         super(Knife, self).__init__("Knife", "Can be swung faster and thrown", 35)
+
 
 class BowAndArrow(Weapon):
     def __init__(self):
         super(BowAndArrow, self).__init__("Bow and Arrow", "Can be shot.", 15)
 
+
 class AXE(Weapon):
     def __init__(self):
         super(AXE, self).__init__("A powerful Axe", "Can be swung with immense power", 100)
 # SWITCH
+
+
 class Catcus(Switches):
     def __init__(self):
         super(Catcus, self).__init__("Cactus", "Total ordinary cactus. Though there does look like a lever is "
-                                                   "attached, maybe you could flip it..")
-#HORSES
+                                               "attached, maybe you could flip it..")
+# HORSES
+
+
 class BlackHorse(Horse):
     def __init__(self):
         super(BlackHorse, self).__init__("Roger", "He is black and seems stubborn. Reminds you of pigs...",
-                                             speed=50)
+                                         speed=50)
+
 
 class WhiteHorse(Horse):
     def __init__(self):
-        super(WhiteHorse, self).__init__("Tyrone",
-                                             "He is white and seems stuck up. Reminds you of a hairless cats...",
-                                             speed=30)
+        super(WhiteHorse, self).__init__("Tyrone.", "He is white and seems stuck up. Reminds you of a hairless cats...",
+                                         speed=30)
+
 
 class GoldenHorse(Horse):
     def __init__(self):
-        super(GoldenHorse, self).__init__("Charles",
-                                              "He is golden and seems really lazy. Reminds you of a person who "
-                                              "lives in their parents basement...", speed=0)
+        super(GoldenHorse, self).__init__("Charles", "He is golden and seems really lazy. Reminds you of a person who "
+                                          "lives in their parents basement...", speed=0)
+
 
 class Key(Interactable):
     def __init__(self):
         super(Key, self).__init__("Key", "Can be used to unlock doors")
 
 # GAME CONTROLLERS
+
+
 class Controller(Interactable):
     def __init__(self, name, description, color, controller_type):
         super(Controller, self).__init__(name, description)
         self.color = color
         self.type = controller_type
 
+
 class GamecubeController(Controller):
     def __init__(self):
         super(GamecubeController, self).__init__("Gamecube Controller", "This controller is black. It is wired",
-                                                     "Black", "Wired")
+                                                 "Black", "Wired")
+
 
 class Joycons(Controller):
     def __init__(self):
         super(Joycons, self).__init__("JoyCons", "The left Joycon is red, and the right is Blue.", "Blue and Red",
-                                          "Wireless")
+                                      "Wireless")
+
 
 class ProController(Controller):
     def __init__(self):
         super(ProController, self).__init__("Switch Pro Controller", "It's a somewhat black wireless Xbox styled "
-                                                                         "controller.", "Blackish Gray", "Wireless")
-#ENTITIES
+                                            "controller.", "Blackish Gray", "Wireless")
+# ENTITIES
+
+
 class Character(object):
     def __init__(self, name, health, weapon, armor):
         self.name = name
@@ -191,6 +222,7 @@ class Character(object):
         target.take_damage(self.weapon.damage)
         print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
 
+
 class Player(object):
     def __init__(self, name, health, weapon, starting_location):
         self.name = name
@@ -200,6 +232,7 @@ class Player(object):
         self.current_location = starting_location
         self.inventory = []
         self.damage = 999
+        self.money = 0
 
     def take_damage(self, damage):
         self.health -= damage
@@ -218,14 +251,10 @@ class Player(object):
         """
         self.current_location = newlocation
 
-    def gather_monay(self):
-        for entity in self.current_location.entity:
-            if "Monay" in self.current_location.entity:
-                #MonayB.count += 1
-                self.current_location.entity.pop(entity)
 
-class Bigboss(object):
+class Bigboss(Character):
     def __init__(self, name, health, weapon, description):
+        super
             self.name = name
             self.health = health
             self.weapon = weapon
@@ -256,13 +285,13 @@ my_knife = Knife()
 my_bow = BowAndArrow()
 my_axe = AXE()
 my_gloves = BoxingGloves()
-my_shop = HorseShop("Pikachu Horse Shop")
+# my_shop = HorseShop("Pikachu Horse Shop")
 Money = Monay()
 healing = Bandaids()
 
 # Characters
-#C1 = Character("Orc1", 100, sword, None)
-#C2 = Character("Orc2", 100, sword, None)
+# C1 = Character("Orc1", 100, sword, None)
+# C2 = Character("Orc2", 100, sword, None)
 
 ogre = Bigboss("Shrek", 300, my_axe, "Looks like Shrek,..ugly.")
 
@@ -416,24 +445,25 @@ Top_of_Pyramid = Room("Top of Pyramid", None, None, None, None, None, "P6",
                       "To get down there are two ways. You can go through the pyramid, or jump into this pool you see "
                       "at the very bottom. It looks deep enough to survive.", my_GamecubeController)
 
-Boss.entity = [ogre]
+Boss.enemy = ogre
 # players
-player = Player(center)
+player = Player("You", 999, my_gloves, center)
 
 playing = True
 directions = ["north", "south", "east", "west", "up", "down"]
 
 
-
-
 # Controller
+
+
 while playing:
-    print(player.current_location.entity)
     print(player.current_location.name)
     print(player.current_location.description)
     command = input(">_")
 #   if current_node == world_map['CHEST']: # CHANGING DESCRIPTION
 #    world_map["BOSS"]["DESCRIPTION"] = "Boss is dead"  # BOSSES ^
+    if player.current_location.money > 0:
+        print("There is $%d here" % player.current_location.money)
     if command.lower() in ["q", "quit", "exit"]:
         playing = False
     elif command.lower() in directions:
@@ -447,12 +477,26 @@ while playing:
             print("I can't go that way.")
         except AttributeError:
             print("This does not exist")
+    elif "attack" in command:
+        new_target = command[7:]
+        current_target = None
+        if player.current_location.enemy is not None:
+            if player.current_location.enemy.name == new_target:
+                current_target = player.current_location.enemy
+        print(type(current_target))
+        if issubclass(type(current_target), Character):
+            player.attack(current_target)
+            print("")
+        elif current_target is None:
+            print("That doesnt exist!")
+        else:
+            print("You can't attack it")
     elif "pick up" in command:
         item_name = command[8:]
         found_item = None
-        for thing in player.current_location.item:
-            if thing.name == item_name:
-                found_item = thing
+        if player.current_location.item is not None:
+            if player.current_location.item.name == item_name:
+                found_item = player.current_location.item
         if isinstance(found_item, Interactable):
             print("You pick up the " + item_name)
             player.inventory.append(found_item)
@@ -460,5 +504,9 @@ while playing:
             print("You don't see one here")
         else:
             print("You can't pick it up")
+    elif command.lower() in ["get money", "take money"]:
+        player.money += player.current_location.money
+        print("You picked up $%d" % player.current_location.money)
+        player.current_location.money = 0
     else:
         print("Command Not Recognized")
