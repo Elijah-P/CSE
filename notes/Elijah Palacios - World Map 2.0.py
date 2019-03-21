@@ -238,11 +238,11 @@ class Player(object):
         self.health -= damage
         if self.health < 0:
             self.health = 0
-        print("%s has %d health left" % (self.name, self.health))
+        print("%s have %d health left" % (self.name, self.health))
 
     def attack(self, target):
         target.take_damage(self.weapon.damage)
-        print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
+        print("%s attack %s for %d damage" % (self.name, target.name, self.weapon.damage))
 
     def move(self, newlocation):
         """
@@ -254,11 +254,11 @@ class Player(object):
 
 class Bigboss(Character):
     def __init__(self, name, health, weapon, description):
-        super
-            self.name = name
-            self.health = health
-            self.weapon = weapon
-            self.description = description
+        super(Bigboss, self).__init__(name, health, weapon, armor=None)
+        self.name = name
+        self.health = health
+        self.weapon = weapon
+        self.description = description
 
     def take_damage(self, damage):
         self.health -= damage
@@ -483,10 +483,12 @@ while playing:
         if player.current_location.enemy is not None:
             if player.current_location.enemy.name == new_target:
                 current_target = player.current_location.enemy
-        print(type(current_target))
         if issubclass(type(current_target), Character):
             player.attack(current_target)
             print("")
+            current_target.attack(player)
+            print("")
+
         elif current_target is None:
             print("That doesnt exist!")
         else:
