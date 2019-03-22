@@ -11,6 +11,7 @@ class Room(object):
         self.item = item
         self.money = money
         self.enemy = enemy
+        self.visit = 0
 
 
 class Item(object):
@@ -200,7 +201,7 @@ class Joycons(Controller):
 
 class ProController(Controller):
     def __init__(self):
-        super(ProController, self).__init__("Switch Pro Controller", "It's a somewhat black wireless Xbox styled "
+        super(ProController, self).__init__("Pro Controller", "It's a somewhat black wireless Xbox styled "
                                             "controller.", "Blackish Gray", "Wireless")
 # ENTITIES
 
@@ -228,10 +229,10 @@ class Player(object):
         self.name = name
         self.health = health
         self.weapon = weapon
-        self.health = 100
+        self.health = 500
         self.current_location = starting_location
         self.inventory = []
-        self.damage = 999
+        self.damage = 10
         self.money = 0
 
     def take_damage(self, damage):
@@ -323,7 +324,7 @@ base_of_mountain = Room("The base of the Snowy Mountain", "mountains", None, Non
                         "You climbed down the mountain. "
                         "You see an entrance with a staircase leading down.")
 
-forest = Room("Entrance to Forest", "inside_forest", None, "Center", None, None, None,
+forest = Room("Entrance to Forest", "inside_forest", None, "center", None, None, None,
               "There is a sign saying, 'D-NT -ET -OST.' "
               "Letters are missing on the sign. Fog surrounds the entrance.")
 
@@ -391,7 +392,7 @@ Chest = Room("In front of treasure chest", None, None, "Boss", None, None, None,
              "After killing the ogre, you are in front of a chest. "
              "It is creaked open.", my_Joycons)
 
-Desert = Room("Desert", "Front_of_Pyramid", "Center", "Oasis", "Cactus", None, None,
+Desert = Room("Desert", "Front_of_Pyramid", "center", "Oasis", "Cactus", None, None,
               "You walked far enough and are now in a desert. "
               "It's really hot and you could possibly die staying in here to long."
               "You would need some type of animal to travel through the desert without dying of exhaustion")
@@ -457,8 +458,10 @@ directions = ["north", "south", "east", "west", "up", "down"]
 
 
 while playing:
+    player.current_location.visit += 1
     print(player.current_location.name)
-    print(player.current_location.description)
+    if player.current_location.visit < 2:
+        print(player.current_location.description)
     command = input(">_")
 #   if current_node == world_map['CHEST']: # CHANGING DESCRIPTION
 #    world_map["BOSS"]["DESCRIPTION"] = "Boss is dead"  # BOSSES ^
@@ -493,6 +496,11 @@ while playing:
             print("That doesnt exist!")
         else:
             print("You can't attack it")
+    elif command.lower()in ["look", "look around", "l"]:
+        print(player.current_location.description)
+    elif command.lower() in ["check bag", "i", "b", "inventory"]:
+        for itemy in player.inventory:
+            print(itemy.name)
     elif "pick up" in command:
         item_name = command[8:]
         found_item = None
