@@ -299,7 +299,7 @@ ogre = Bigboss("Shrek", 300, my_axe, "Looks like Shrek,..ugly.")
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
               "A 10K TV is in front of you with SmashBros on. "
               "There are 8 open spots to play, but no controllers. "
-              "There are 4 different ways to go.")
+              "There are 4 different ways to go.",)
 
 portal = Room("Entrance to portal.", None, "mountains", None, "center", None, None,
               "A weird portal(looking like a nether portal from minecraft). "
@@ -455,13 +455,13 @@ directions = ["north", "south", "east", "west", "up", "down"]
 
 
 # Controller
-
-
 while playing:
     player.current_location.visit += 1
     print(player.current_location.name)
     if player.current_location.visit < 2:
         print(player.current_location.description)
+    if player.current_location.item is not None:
+        print("There is a %s in here" % player.current_location.item.name)
     command = input(">_")
 #   if current_node == world_map['CHEST']: # CHANGING DESCRIPTION
 #    world_map["BOSS"]["DESCRIPTION"] = "Boss is dead"  # BOSSES ^
@@ -471,10 +471,8 @@ while playing:
         playing = False
     elif command.lower() in directions:
         try:
-            # command = "north"
             room_name = getattr(player.current_location, command)
             room_object = globals()[room_name]
-
             player.move(room_object)
         except KeyError:
             print("I can't go that way.")
@@ -491,7 +489,6 @@ while playing:
             print("")
             current_target.attack(player)
             print("")
-
         elif current_target is None:
             print("That doesnt exist!")
         else:
@@ -501,6 +498,8 @@ while playing:
     elif command.lower() in ["check bag", "i", "b", "inventory"]:
         for itemy in player.inventory:
             print(itemy.name)
+        else:
+            print("You have no items")
     elif "pick up" in command:
         item_name = command[8:]
         found_item = None
@@ -514,6 +513,8 @@ while playing:
             print("You don't see one here")
         else:
             print("You can't pick it up")
+    elif "drop" in command:
+        print()
     elif command.lower() in ["get money", "take money"]:
         player.money += player.current_location.money
         print("You picked up $%d" % player.current_location.money)
