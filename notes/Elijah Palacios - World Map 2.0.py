@@ -1,5 +1,36 @@
+def take(_item_name):
+    _found_item = None
+    if player.current_location.item is not None:
+        if player.current_location.item.name.lower() == _item_name.lower():
+            _found_item = player.current_location.item
+    if isinstance(_found_item, Interactable):
+        print("You pick up the " + _item_name)
+        player.inventory.append(_found_item)
+        player.current_location.item = None
+    elif _found_item is None:
+        print("You don't see one here")
+    else:
+        print("You can't pick it up")
+
+
+def drop(_item_name):
+    _found_item = None
+    for _item in player.inventory:
+        if _item.name.lower() == item_name.lower():
+            _found_item = _item
+            print("You drop the %s" % _item.name)
+    if _found_item is not None:
+        if player.current_location.item is None:
+            player.current_location.item = _found_item
+            player.inventory.remove(_found_item)
+        else:
+            print("There is already an item here.")
+    else:
+        print("You don't have one")
+
+
 class Room(object):
-    def __init__(self, name, north, east, south, west, up, down, description, item=None, money=0, enemy=None):
+    def __init__(self, name, north, east, south, west, up, down, description, _item=None, money=0, enemy=None):
         self.name = name
         self.north = north
         self.east = east
@@ -8,7 +39,7 @@ class Room(object):
         self.up = up
         self.down = down
         self.description = description
-        self.item = item
+        self.item = _item
         self.money = money
         self.enemy = enemy
         self.visit = 0
@@ -502,19 +533,20 @@ while playing:
             print("You have no items")
     elif "pick up" in command:
         item_name = command[8:]
-        found_item = None
-        if player.current_location.item is not None:
-            if player.current_location.item.name == item_name:
-                found_item = player.current_location.item
-        if isinstance(found_item, Interactable):
-            print("You pick up the " + item_name)
-            player.inventory.append(found_item)
-        elif found_item is None:
-            print("You don't see one here")
-        else:
-            print("You can't pick it up")
+        take(item_name)
+
+    elif "take" in command:
+        item_name = command[5:]
+        take(item_name)
+
     elif "drop" in command:
-        print()
+        item_name = command[5:]
+        drop(item_name)
+
+    elif "place down" in command:
+        item_name = command[11:]
+        drop(item_name)
+
     elif command.lower() in ["get money", "take money"]:
         player.money += player.current_location.money
         print("You picked up $%d" % player.current_location.money)
