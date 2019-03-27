@@ -12,6 +12,12 @@ def take(_item_name):
     else:
         print("You can't pick it up")
 
+def equip(_item_name):
+    _found_item = None
+    for _item in player.inventory:
+        if _item_name.lower() == item_name.lower():
+            _found_item = _item
+            print("You equip the %s" % _item.name)
 
 def drop(_item_name):
     _found_item = None
@@ -77,8 +83,8 @@ class Building(object):
 #             wish_item = input("I want to buy >")
 #             for i in self.storage:
 #                 if wish_item in self.storage:
-
-
+#
+#
 # class HorseShop(Shop):
 #     def __init__(self, name):
 #         super(HorseShop, self).__init__(name)
@@ -92,12 +98,12 @@ class Building(object):
 #                 "Cost": 20
 #             },
 #             "Stock3": {
-#                 "Name": my_goldenhorse,
+#                 "Name": my_goldenhorse.name,
 #                 "Cost": 30
 #             }
 #         }
 
-#######
+
 class Currency(Interactable):
     def __init__(self, name, description):
         super(Currency, self).__init__(name, description)
@@ -417,7 +423,7 @@ D9 = Room("Dungeon", "inside_forest", None, None, None, None, None, "You see tha
 
 Boss = Room("Boss Room.", "Chest", None, "inside_forest", None, None, None,
             "You see a big ogre. "
-            "He is breathing heavily and has a wound on his leg.")
+            "He is breathing heavily and has a wound on his leg.", None, 0)
 
 Chest = Room("In front of treasure chest", None, None, "Boss", None, None, None,
              "After killing the ogre, you are in front of a chest. "
@@ -531,6 +537,8 @@ while playing:
             print(itemy.name)
         else:
             print("You have no items")
+    elif "equip" in command:
+
     elif "pick up" in command:
         item_name = command[8:]
         take(item_name)
