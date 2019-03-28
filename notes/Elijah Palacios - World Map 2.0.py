@@ -12,12 +12,16 @@ def take(_item_name):
     else:
         print("You can't pick it up")
 
+
 def equip(_item_name):
     _found_item = None
     for _item in player.inventory:
         if _item_name.lower() == item_name.lower():
             _found_item = _item
-            print("You equip the %s" % _item.name)
+    print("You equip the %s" % _found_item.name)
+    player.inventory.append(player.weapon)
+    player.weapon = _found_item
+
 
 def drop(_item_name):
     _found_item = None
@@ -538,6 +542,8 @@ while playing:
         else:
             print("You have no items")
     elif "equip" in command:
+        item_name = command[6:]
+        equip(item_name)
 
     elif "pick up" in command:
         item_name = command[8:]
