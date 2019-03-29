@@ -270,7 +270,6 @@ class Player(object):
         self.name = name
         self.health = health
         self.weapon = weapon
-        self.health = 500
         self.current_location = starting_location
         self.inventory = []
         self.damage = 10
@@ -283,8 +282,11 @@ class Player(object):
         print("%s have %d health left" % (self.name, self.health))
 
     def attack(self, target):
-        target.take_damage(self.weapon.damage)
-        print("%s attack %s for %d damage" % (self.name, target.name, self.weapon.damage))
+        try:
+            target.take_damage(self.weapon.damage)
+            print("%s attack %s for %d damage" % (self.name, target.name, self.weapon.damage))
+        except AttributeError:
+            print("You can't attack with this")
 
     def move(self, newlocation):
         """
