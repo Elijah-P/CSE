@@ -310,9 +310,9 @@ class Bigboss(Character):
             self.health = 0
             print("%s has %d health left" % (self.name, self.health))
 
-    def attack(self, target):
-        target.take_damage(self.weapon.damage)
-        print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
+    def attack_(self, player):
+        player.take_damage(self.weapon.damage)
+        print("%s attacks %s for %d damage" % (self.name, player.name, self.weapon.damage))
 
 
 # items
@@ -530,7 +530,7 @@ while playing:
         if issubclass(type(current_target), Character):
             player.attack(current_target)
             print("")
-            current_target.attack(player)
+            current_target.attack_(player)
             print("")
         elif current_target is None:
             print("That doesnt exist!")
