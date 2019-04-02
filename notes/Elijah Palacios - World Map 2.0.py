@@ -12,6 +12,9 @@ def take(_item_name):
     else:
         print("You can't pick it up")
 
+def plug_in(_item_name):
+    if player.weapon in center.requirments:
+
 
 def equip(_item_name):
     _found_item = None
@@ -53,6 +56,7 @@ class Room(object):
         self.money = money
         self.enemy = enemy
         self.visit = 0
+        self.requirments = []
 
 
 class Item(object):
@@ -342,7 +346,7 @@ ogre = Bigboss("Shrek", 300, my_axe, "Looks like Shrek,..ugly.")
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
               "A 10K TV is in front of you with SmashBros on. "
               "There are 8 open spots to play, but no controllers. "
-              "There are 4 different ways to go.",)
+              "There are 4 different ways to go.", [my_ProController, my_Joycons, my_GamecubeController])
 
 portal = Room("Entrance to portal.", None, "mountains", None, "center", None, None,
               "A weird portal(looking like a nether portal from minecraft). "
