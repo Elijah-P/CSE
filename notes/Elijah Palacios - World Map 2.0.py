@@ -12,8 +12,9 @@ def take(_item_name):
     else:
         print("You can't pick it up")
 
+
 def plug_in(_item_name):
-    if player.weapon in center.requirments:
+
 
 
 def equip(_item_name):
@@ -75,41 +76,44 @@ class Building(object):
         self.name = name
 
 # SHOP
+class Shop(Building):
+    def __init__(self, name):
+        super(Shop, self).__init__(name)
+        self.storage = {}
 
-# class Shop(Building):
-#     def __init__(self, name):
-#         super(Shop, self).__init__(name)
-#         self.storage = {}
-#
-#     def ask_list(self, target):
-#         print("Welcome to my shop, buy something.")
-#         command = input(">")
-#         if command in ["buy", "b", "purchase"]:
-#             print("Here's what we have")
-#             for item in self.storage:
-#                 print(self.storage[item]["Name"] + "-" + str(self.storage[item]["Cost"]) + "$")
-#             wish_item = input("I want to buy >")
-#             for i in self.storage:
-#                 if wish_item in self.storage:
-#
-#
-# class HorseShop(Shop):
-#     def __init__(self, name):
-#         super(HorseShop, self).__init__(name)
-#         self.storage = {
-#             "stock1": {
-#                 "Name": my_blackhorse.name,
-#                 "Cost": 15
-#             },
-#             "Stock2": {
-#                 "Name": my_whitehorse.name,
-#                 "Cost": 20
-#             },
-#             "Stock3": {
-#                 "Name": my_goldenhorse.name,
-#                 "Cost": 30
-#             }
-#         }
+    def ask(self):
+        print("Welcome to %s, do you want to buy something" % self.name)
+        command = input(">")
+        if command in ["buy", "b", "purchase"]:
+            print("Here's what we have in store;")
+            for item in self.storage:
+                print(self.storage[item]["Name"] + " - " + str(self.storage[item]["Cost"]) + "$")
+            request = input("I want to buy >")
+            for i, thing in enumerate(self.storage.keys()):
+                if self.storage[thing]["Name"] == request:
+                    customer_i = input("Do you want the %s" % self.storage[thing]["Name"])
+                    if customer_i in ["Yes", "confirm", "affirmative"]:
+                        if player.money >= self.storage[thing]["Cost"]:
+                            print("You have purchased it for %d Money" % self.storage[thing]["Cost"])
+                            print("You have %d Money left" % player.money)
+
+class HorseShop(Shop):
+     def __init__(self, name):
+        super(HorseShop, self).__init__(name)
+        self.storage = {
+            "stock1": {
+                "Name": my_blackhorse.name,
+                "Cost": 15
+            },
+            "Stock2": {
+                "Name": my_whitehorse.name,
+                "Cost": 20
+            },
+            "Stock3": {
+                "Name": my_goldenhorse.name,
+                "Cost": 30
+            }
+        }
 
 
 class Currency(Interactable):
@@ -287,8 +291,8 @@ class Player(object):
 
     def attack(self, target):
         try:
-            target.take_damage(self.weapon.damage)
             print("%s attack %s for %d damage" % (self.name, target.name, self.weapon.damage))
+            target.take_damage(self.weapon.damage)
         except AttributeError:
             print("You can't attack with this")
 
@@ -312,11 +316,12 @@ class Bigboss(Character):
         self.health -= damage
         if self.health < 0:
             self.health = 0
-            print("%s has %d health left" % (self.name, self.health))
+            print("%s is dead" % ogre)
+        print("%s has %d health left" % (self.name, self.health))
 
     def attack(self, target):
-        target.take_damage(self.weapon.damage)
         print("%s attacks %s for %d damage" % (self.name, target.name, self.weapon.damage))
+        target.take_damage(self.weapon.damage)
 
 
 # items
@@ -346,7 +351,7 @@ ogre = Bigboss("Shrek", 300, my_axe, "Looks like Shrek,..ugly.")
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
               "A 10K TV is in front of you with SmashBros on. "
               "There are 8 open spots to play, but no controllers. "
-              "There are 4 different ways to go.", [my_ProController, my_Joycons, my_GamecubeController])
+              "There are 4 different ways to go.")
 
 portal = Room("Entrance to portal.", None, "mountains", None, "center", None, None,
               "A weird portal(looking like a nether portal from minecraft). "
