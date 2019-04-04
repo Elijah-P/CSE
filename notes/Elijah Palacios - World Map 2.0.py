@@ -13,8 +13,7 @@ def take(_item_name):
         print("You can't pick it up")
 
 
-def plug_in(_item_name):
-
+#   def plug_in(_item_name):
 
 
 def equip(_item_name):
@@ -44,7 +43,8 @@ def drop(_item_name):
 
 
 class Room(object):
-    def __init__(self, name, north, east, south, west, up, down, description, _item=None, money=0, enemy=None):
+    def __init__(self, name, north, east, south, west, up, down, description, _item=None, money=0, enemy=None,
+                 requirments=None, shop=None):
         self.name = name
         self.north = north
         self.east = east
@@ -57,7 +57,8 @@ class Room(object):
         self.money = money
         self.enemy = enemy
         self.visit = 0
-        self.requirments = []
+        self.requirments = requirments
+        self.shop = shop
 
 
 class Item(object):
@@ -74,6 +75,7 @@ class Interactable(Item):
 class Building(object):
     def __init__(self, name):
         self.name = name
+
 
 # SHOP
 class Shop(Building):
@@ -96,24 +98,17 @@ class Shop(Building):
                         if player.money >= self.storage[thing]["Cost"]:
                             print("You have purchased it for %d Money" % self.storage[thing]["Cost"])
                             print("You have %d Money left" % player.money)
+                            player.inventory.append(self.storage[thing]["ID"])
+                        elif player.money < self.storage[thing]["Cost"]:
+                            if player.money <= 0:
+                                print("You are broke")
+                            else:
+                                print("You only have %d with you" % player.money)
+                                self.ask()
 
-class HorseShop(Shop):
-     def __init__(self, name):
-        super(HorseShop, self).__init__(name)
-        self.storage = {
-            "stock1": {
-                "Name": my_blackhorse.name,
-                "Cost": 15
-            },
-            "Stock2": {
-                "Name": my_whitehorse.name,
-                "Cost": 20
-            },
-            "Stock3": {
-                "Name": my_goldenhorse.name,
-                "Cost": 30
-            }
-        }
+
+
+
 
 
 class Currency(Interactable):
@@ -324,6 +319,26 @@ class Bigboss(Character):
         target.take_damage(self.weapon.damage)
 
 
+class HorseShop(Shop):
+    def __init__(self, name):
+        super(HorseShop, self).__init__(name)
+        self.storage = {
+            "stock1": {
+                "Name": my_blackhorse.name,
+                "Cost": 15,
+                "ID": my_blackhorse
+            },
+            "Stock2": {
+                "Name": my_whitehorse.name,
+                "Cost": 20
+            },
+            "Stock3": {
+                "Name": my_goldenhorse.name,
+                "Cost": 30
+            }
+        }
+
+
 # items
 my_key = Key()
 my_GamecubeController = GamecubeController()
@@ -338,20 +353,16 @@ my_knife = Knife()
 my_bow = BowAndArrow()
 my_axe = AXE()
 my_gloves = BoxingGloves()
-# my_shop = HorseShop("Pikachu Horse Shop")
+my_shop = HorseShop("Pikachu Horse Shop")
 Money = Monay()
 healing = Bandaids()
-
-# Characters
-# C1 = Character("Orc1", 100, sword, None)
-# C2 = Character("Orc2", 100, sword, None)
 
 ogre = Bigboss("Shrek", 300, my_axe, "Looks like Shrek,..ugly.")
 
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
               "A 10K TV is in front of you with SmashBros on. "
               "There are 8 open spots to play, but no controllers. "
-              "There are 4 different ways to go.")
+              "There are 4 different ways to go.", None, 0, None, [my_GamecubeController, my_Joycons, my_ProController])
 
 portal = Room("Entrance to portal.", None, "mountains", None, "center", None, None,
               "A weird portal(looking like a nether portal from minecraft). "
@@ -370,7 +381,7 @@ cavern = Room("Inside the cavern", None, None, None, "mountains", None, None,
               "You see this buff, ripped Pikachu behind the counter. "
               "It is the owner of this shop. "
               "It yells 'PIKA PIKA' in a deep voice. "
-              "You see a horse. It looks wounded.")
+              "You see a horse. It looks wounded.", None, 0, None, None, my_shop)
 
 base_of_mountain = Room("The base of the Snowy Mountain", "mountains", None, None, None, None, None,
                         "You climbed down the mountain. "
@@ -571,6 +582,11 @@ while playing:
     elif "place down" in command:
         item_name = command[11:]
         drop(item_name)
+
+    elif command.lower() in ["shop", "buy"]:
+        for shop in player.current_location.shop:
+            if isinstance(shop, Shop):
+                shop.ask()
 
     elif command.lower() in ["get money", "take money"]:
         player.money += player.current_location.money
