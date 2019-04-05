@@ -85,8 +85,8 @@ class Shop(Building):
 
     def ask(self):
         print("Welcome to %s, do you want to buy something" % self.name)
-        command = input(">")
-        if command in ["buy", "b", "purchase"]:
+        _command = input(">")
+        if _command in ["buy", "b", "purchase"]:
             print("Here's what we have in store;")
             for item in self.storage:
                 print(self.storage[item]["Name"] + " - " + str(self.storage[item]["Cost"]) + "$")
@@ -105,10 +105,6 @@ class Shop(Building):
                             else:
                                 print("You only have %d with you" % player.money)
                                 self.ask()
-
-
-
-
 
 
 class Currency(Interactable):
@@ -584,9 +580,8 @@ while playing:
         drop(item_name)
 
     elif command.lower() in ["shop", "buy"]:
-        for shop in player.current_location.shop:
-            if isinstance(shop, Shop):
-                shop.ask()
+        if isinstance(player.current_location.shop, Shop):
+            player.current_location.shop.ask()
 
     elif command.lower() in ["get money", "take money"]:
         player.money += player.current_location.money
