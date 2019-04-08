@@ -43,7 +43,7 @@ def drop(_item_name):
 
 
 class Room(object):
-    def __init__(self, name, north, east, south, west, up, down, description, _item=None, money=0, enemy=None,
+    def __init__(self, name, north, east, south, west, up, down, description, _item=None, money=None, enemy=None,
                  requirments=None, shop=None):
         self.name = name
         self.north = north
@@ -326,11 +326,13 @@ class HorseShop(Shop):
             },
             "Stock2": {
                 "Name": my_whitehorse.name,
-                "Cost": 20
+                "Cost": 20,
+                "ID": my_whitehorse
             },
             "Stock3": {
                 "Name": my_goldenhorse.name,
-                "Cost": 30
+                "Cost": 30,
+                "ID": my_goldenhorse
             }
         }
 
@@ -362,12 +364,12 @@ center = Room("Center of The World.", "forest", "portal", None, "Desert", None, 
 
 portal = Room("Entrance to portal.", None, "mountains", None, "center", None, None,
               "A weird portal(looking like a nether portal from minecraft). "
-              "You feel a cold breeze coming from the other side.")
+              "You feel a cold breeze coming from the other side.", None, 50)
 
 mountains = Room("Middle of snowy mountain", "peak_of_mountain", "cavern", "base_of_mountain", "portal", None, None,
                  "The portal led to the middle of a mountain. "
                  "You see the peak and base of the mountain. "
-                 "You also see a cavern east.",)
+                 "You also see a cavern east.", None, 25)
 
 peak_of_mountain = Room("Peak of The Snowy Mountain", None, None, "mountains", None, None, None,
                         "You climbed up the mountain. "
@@ -511,6 +513,7 @@ player = Player("You", 999, my_gloves, center)
 
 playing = True
 directions = ["north", "south", "east", "west", "up", "down"]
+short_directions = ["n", "s", "e", "w", "u", "d"]
 
 
 # Controller
@@ -521,11 +524,15 @@ while playing:
         print(player.current_location.description)
     if player.current_location.item is not None:
         print("There is a %s in here" % player.current_location.item.name)
+    if player.current_location.money is not None:
+        print("There is $%d here" % player.current_location.money)
+
     command = input(">_")
+    if command in short_directions:
+        pos = short_directions.index(command.lower())
+        command = directions[pos]
 #   if current_node == world_map['CHEST']: # CHANGING DESCRIPTION
 #    world_map["BOSS"]["DESCRIPTION"] = "Boss is dead"  # BOSSES ^
-    if player.current_location.money > 0:
-        print("There is $%d here" % player.current_location.money)
     if command.lower() in ["q", "quit", "exit"]:
         playing = False
     elif command.lower() in directions:
@@ -537,6 +544,10 @@ while playing:
             print("I can't go that way.")
         except AttributeError:
             print("This does not exist")
+    elif command.lower() in ["get money", "take money"]:
+        player.money += player.current_location.money
+        print("You picked up $%d" % player.current_location.money)
+        player.current_location.money = 0
     elif "attack" in command:
         new_target = command[7:]
         current_target = None
@@ -583,9 +594,5 @@ while playing:
         if isinstance(player.current_location.shop, Shop):
             player.current_location.shop.ask()
 
-    elif command.lower() in ["get money", "take money"]:
-        player.money += player.current_location.money
-        print("You picked up $%d" % player.current_location.money)
-        player.current_location.money = 0
     else:
         print("Command Not Recognized")
