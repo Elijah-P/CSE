@@ -97,6 +97,7 @@ class Shop(Building):
                     if customer_i in ["Yes", "confirm", "affirmative"]:
                         if player.money >= self.storage[thing]["Cost"]:
                             print("You have purchased it for %d Money" % self.storage[thing]["Cost"])
+                            player.money -= self.storage[thing]["Cost"]
                             print("You have %d Money left" % player.money)
                             player.inventory.append(self.storage[thing]["ID"])
                         elif player.money < self.storage[thing]["Cost"]:
@@ -570,6 +571,13 @@ while playing:
             print(itemy.name)
         else:
             print("You have no items")
+    elif command.lower() in ["h", "help"]:
+        print("To pick up things type 'take (item)' or 'pick up (item)'")
+        print("To take money type 'take money', or 'get money'")
+        print("To move around type 'North, South, West, or South. To make it easier you can type the first letter of "
+              "each direction")
+        print("To attack an enemy, type attack and the enemy's name")
+
     elif "equip" in command:
         item_name = command[6:]
         equip(item_name)
