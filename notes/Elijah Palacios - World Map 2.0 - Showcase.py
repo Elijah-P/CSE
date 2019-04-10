@@ -361,7 +361,7 @@ ogre = Bigboss("Shrek", 300, my_axe, "Looks like Shrek,..ugly.")
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
               "A 10K TV is in front of you with SmashBros on. "
               "There are 8 open spots to play, but no controllers. "
-              "There are 4 different ways to go.", None, 0, None, [my_GamecubeController, my_Joycons, my_ProController])
+              "There are 3 different ways to go.", None, 0, None, [my_GamecubeController, my_Joycons, my_ProController])
 
 portal = Room("Entrance to portal.", None, "mountains", None, "center", None, None,
               "A weird portal(looking like a nether portal from minecraft). "
@@ -529,7 +529,8 @@ while playing:
         print("There is a %s in here" % player.current_location.item.name)
     if player.current_location.money is not None:
         print("There is $%d here" % player.current_location.money)
-
+    if player.current_location == Spikes:
+        playing = False
     command = input(">_")
     if command in short_directions:
         pos = short_directions.index(command.lower())
