@@ -334,9 +334,13 @@ class HorseShop(Shop):
                 "Name": my_goldenhorse.name,
                 "Cost": 30,
                 "ID": my_goldenhorse
+            },
+            "Stock4": {
+                "Name":healing.name,
+                "Cost": 15,
+                "ID": healing
             }
         }
-
 
 # items
 my_key = Key()
@@ -399,11 +403,11 @@ Lost_Woods = Room("Lost Woods", None, "L1", None, "inside_forest", None, None,
                   "Seems like if you go the wrong way you'll be brought back to the entrance, You can go west to leave"
                   " this area")
 
-L1 = Room("Lost_Woods", "Lost_Woods", "L2", "Lost_Woods", "Lost_Woods", None, None, "")
+L1 = Room("Lost_Woods", "Lost_Woods", "L2", "Lost_Woods", "Lost_Woods", None, None, "First room of the maze")
 
-L2 = Room("Lost_Woods", "Lost_Woods", "Lost_Woods", "L3", "Lost_Woods", None, None, "")
+L2 = Room("Lost_Woods", "Lost_Woods", "Lost_Woods", "L3", "Lost_Woods", None, None, "Second room of the maze")
 
-L3 = Room("Lost_Woods", "L4", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None, "")
+L3 = Room("Lost_Woods", "Lost_Woods", "L4", "Lost_Woods", "Lost_Woods", None, None, "Third room of the maze")
 
 L4 = Room("End of Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None,
           "You have found a key on the floor, could be used somewhere else here in the forest. \n"
@@ -413,28 +417,28 @@ Dungeon = Room("Dungeon", None, "inside_forest", "D1", None, None, None,
                "You're inside a dark somewhat smelly dungeon."
                " Careful, traps might be here. To go through you would need a key to enter.")
 
-D1 = Room("Dungeon", "Dungeon", "D2", None, "D3", None, None, "You see that there are three teleporters here, "
-                                                              "one to the north, east, and west")
+D1 = Room("Room 1", "Dungeon", "D2", None, "D3", None, None, "You see that there are three teleporters here, "
+                                                             "one to the north, east, and west")
 
-D2 = Room("Dungeon", "D1", "D3", None, "D4", None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
+D2 = Room("Room 2", "D1", "D3", None, "D4", None, None, "You see that there are three teleporters here, one to the"
+                                                        " north, east, and west")
 
-D3 = Room("Dungeon", "D2", "D1", None, "D4", None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
+D3 = Room("Room 3", "D2", "D1", None, "D4", None, None, "You see that there are three teleporters here, one to the"
+                                                        " north, east, and west")
 
-D4 = Room("Dungeon", "D2", "D5", None, "D1", None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
+D4 = Room("Room 4", "D2", "D5", None, "D1", None, None, "You see that there are three teleporters here, one to the"
+                                                        " north, east, and west")
 
-D5 = Room("Dungeon", "inside_forest", "D6", None, "D7", None, None, "You see that there is one teleporter here to the "
-                                                                    "north that leads back outside of the dungeon\n"
-                                                                    "There is also a room to East and West", my_sword)
+D5 = Room("Room 5", "inside_forest", "D6", None, "D7", None, None, "You see that there is one teleporter here to the "
+                                                                   "north that leads back outside of the dungeon\n"
+                                                                   "There is also a room to East and West", my_sword)
 
-D6 = Room("Dungeon", None, None, None, "D5", None, None, "It's just a blank room. Go back west", my_axe)
+D6 = Room("Room 6", None, None, None, "D5", None, None, "It's just a blank room. Go back west", my_axe)
 
-D7 = Room("Dungeon", None, "D5", None, None, None, None, "It's a more colorful room", my_bow)
+D7 = Room("Room 7", None, "D5", None, None, None, None, "It's a more colorful room", my_bow)
 
 Boss = Room("Boss Room.", "Chest", None, "inside_forest", None, None, None,
-            "You see a big ogre. "
+            "You see a big ogre. His name is Shrek"
             "He is breathing heavily and has a wound on his leg.", None, 0)
 
 Chest = Room("In front of treasure chest", None, None, "Boss", None, None, None,
@@ -478,13 +482,13 @@ Inside_pyramid = Room("Inside the Pyramid", None, "P1", "Front_of_Pyramid", None
                       "You see ladders around leading 'UP' to a hole in the ceiling.\n"
                       "Looks like a lot of floors.")
 
-P1 = Room("Inside the Pyramid", None, None, None, "Inside_pyramid", "P2", None, "")
+P1 = Room("First Floor", None, None, None, "Inside_pyramid", "P2", None, "")
 
-P2 = Room("Inside the Pyramid", "P3", None, None, None, None, "P1", "")
+P2 = Room("Second Floor", "P3", None, None, None, None, "P1", "")
 
-P3 = Room("Inside the Pyramid", None, None, "P2", "P4", None, None, "")
+P3 = Room("North of Second Floor", None, None, "P2", "P4", None, None, "")
 
-P4 = Room("Inside the Pyramid", None, None, "P3", None, "Top_of_Pyramid", None, "")
+P4 = Room("West of Second Floor", None, "P3", None, None, "Top_of_Pyramid", None, "")
 
 Top_of_Pyramid = Room("Top of Pyramid", None, None, None, None, None, "Pool",
                       "You are on top of the upside down pyramid, weird.\n"
