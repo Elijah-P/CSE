@@ -86,7 +86,7 @@ class Shop(Building):
     def ask(self):
         print("Welcome to %s, do you want to buy something" % self.name)
         _command = input(">")
-        if _command in ["buy", "b", "purchase"]:
+        if _command in ["buy", "yes", "yeah", "Yes", "Yeah", "b", "purchase"]:
             print("Here's what we have in store;")
             for item in self.storage:
                 print(self.storage[item]["Name"] + " - " + str(self.storage[item]["Cost"]) + "$")
@@ -94,7 +94,7 @@ class Shop(Building):
             for i, thing in enumerate(self.storage.keys()):
                 if self.storage[thing]["Name"] == request:
                     customer_i = input("Do you want the %s" % self.storage[thing]["Name"])
-                    if customer_i in ["Yes", "confirm", "affirmative"]:
+                    if customer_i in ["Yes", "yes", "yeah", "Yeah", "Yea", "yea", "confirm", "affirmative"]:
                         if player.money >= self.storage[thing]["Cost"]:
                             print("You have purchased it for %d Money" % self.storage[thing]["Cost"])
                             player.money -= self.storage[thing]["Cost"]
@@ -122,7 +122,7 @@ class Monay(Currency):
 # HEALING
 
 
-class HealingItem(Interactable):
+class HealingItem(Item):
     def __init__(self, name, description):
         super(HealingItem, self).__init__(name, description)
 
@@ -204,7 +204,7 @@ class BlackHorse(Horse):
 
 class WhiteHorse(Horse):
     def __init__(self):
-        super(WhiteHorse, self).__init__("Tyrone.", "He is white and seems stuck up. Reminds you of a hairless cats...",
+        super(WhiteHorse, self).__init__("Tyrone", "He is white and seems stuck up. Reminds you of a hairless cats...",
                                          speed=30)
 
 
@@ -336,13 +336,20 @@ class HorseShop(Shop):
                 "ID": my_goldenhorse
             },
             "Stock4": {
-                "Name":healing.name,
+                "Name": healing.name,
                 "Cost": 15,
                 "ID": healing
+            },
+            "Stock5": {
+                "Name": my_knife.name,
+                "Cost": 10,
+                "ID": my_knife
             }
         }
 
 # items
+
+
 my_key = Key()
 my_GamecubeController = GamecubeController()
 my_Joycons = Joycons()
@@ -356,10 +363,9 @@ my_knife = Knife()
 my_bow = BowAndArrow()
 my_axe = AXE()
 my_gloves = BoxingGloves()
+healing = Bandaids()
 my_shop = HorseShop("Pikachu Horse Shop")
 Money = Monay()
-healing = Bandaids()
-
 ogre = Bigboss("Shrek", 300, my_axe, "Looks like Shrek,..ugly.")
 
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
@@ -518,7 +524,9 @@ while playing:
         print("There is a %s in here" % player.current_location.item.name)
     if player.current_location.money is not None:
         print("There is $%d here" % player.current_location.money)
-
+    if player.current_location is cavern:
+        print("There is a shop in here, to use the shop, type 'shop'\n"
+              "WHen typing the item you want, make sure you type it the exact way you see it.")
     command = input(">_")
     if command in short_directions:
         pos = short_directions.index(command.lower())
