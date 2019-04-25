@@ -295,6 +295,13 @@ class Player(object):
         """
         self.current_location = newlocation
 
+    def heal(self, health):
+        if health < 999:
+            try:
+                if healing is player.weapon:
+                    healing += player.health
+            except: AttributeError:
+            print("You can'theal with this")
 
 class Bigboss(Character):
     def __init__(self, name, health, weapon, description):
