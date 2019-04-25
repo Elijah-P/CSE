@@ -13,9 +13,6 @@ def take(_item_name):
         print("You can't pick it up")
 
 
-#   def plug_in(_item_name):
-
-
 def equip(_item_name):
     _found_item = None
     for _item in player.inventory:
@@ -295,13 +292,6 @@ class Player(object):
         """
         self.current_location = newlocation
 
-    def heal(self, health):
-        if health < 999:
-            try:
-                if healing is player.weapon:
-                    healing += player.health
-            except: AttributeError:
-            print("You can'theal with this")
 
 class Bigboss(Character):
     def __init__(self, name, health, weapon, description):
