@@ -12,15 +12,20 @@ def multiply_odd_position(num: list):
                          )
         if index % 2 == 0:
             num[index] *= 2
-    print(num)
-    #         if index > 9:
-    #             index -= 9
-    # return num
+    return num
 
 
-def add_all_num(num: list):
-    together = 0
+def num_greater_9(num: list):
     for index in range(len(num)):
+        num[index] = int(num[index])
+        if num[index] > 9:
+            num[index] -= 9
+    return num
+
+
+def add_all_num(my_num: list):
+    together = 0
+    for index in my_num:
         together += int(index)
     return together
 
@@ -30,10 +35,10 @@ def validate(digits: list):
         last_digit = digits[15]
         digits.pop(15)
         reversed_digits = reverse(digits)
-        print(reversed_digits)
-        multiply_odd_position(reversed_digits)
-        #add_all_num(reversed_digits)
-        return True
+        multiplied = multiply_odd_position(reversed_digits)
+        greater_than_9 = num_greater_9(multiplied)
+        added = add_all_num(greater_than_9)
+        return added % 10 == int(last_digit)
     return False
 
 
