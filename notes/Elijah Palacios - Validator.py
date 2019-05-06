@@ -42,22 +42,19 @@ def validate(digits: list):
     return False
 
 
-print(validate(list("4712839550684070")))
+with open("Book1.csv", 'r') as old_csv:
+    with open("MyNewFile.csv", 'w', newline='') as new_csv:
+        reader = csv.reader(old_csv)
+        writer = csv.writer(new_csv)
+        print("Processing...")
 
+        for row in reader:
+            old_number = row[0]  # String
+            digits = list(old_number)
 
-# with open("Book1.csv", 'r') as old_csv:
-#     with open("MyNewFile.csv", 'w', newline='') as new_csv:
-#         reader = csv.reader(old_csv)
-#         writer = csv.writer(new_csv)
-#         print("Processing...")
-#
-#         for row in reader:
-#             old_number = row[0]  # String
-#             digits = list(old_number)
-#
-#             if validate(digits):
-#                 writer.writerow(row)
-#         print("OK")
+            if validate(digits):
+                writer.writerow(row)
+        print("OK")
 
 
 

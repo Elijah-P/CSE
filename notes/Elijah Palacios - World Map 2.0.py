@@ -568,11 +568,12 @@ while playing:
         else:
             print("You have no items")
     elif command.lower() in ["h", "help"]:
-        print("To move around type 'North, South, West, or South. To make it easier you can type the first letter of "
+        print("To move around type 'North, South, East, or West. To make it easier you can type the first letter of "
               "each direction")
         print("To print the description of a location again, type look or L")
         print("To pick up things type 'take and the item's name' or 'pick up and the item's name'")
         print("To take money type 'take money', or 'get money'")
+        print("To check Inventory type 'I', 'check bag', 'b' or 'inventory'")
         print("To attack an enemy, type attack and the enemy's name")
 
     elif "equip" in command:
