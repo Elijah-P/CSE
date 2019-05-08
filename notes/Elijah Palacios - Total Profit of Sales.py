@@ -1,23 +1,54 @@
 import csv
 
-different_items = ["Fruits", "Clothes", "Meat", "Beverages", "Office Supplies", "Cosmetics", "Snacks", "Personal Care",
-                   "House Hold", "Vegetables", "Baby Food", "Cereal"]
-
-for item in different_items:
-    
-
-def add_total_profit
-
-
+different_items = {
+    "Fruits": {
+        "Total Profit":0,
+    },
+    "Clothes": {
+        "Total Profit":0,
+    },
+    "Meat": {
+        "Total Profit":0,
+    },
+    "Beverages": {
+        "Total Profit":0,
+    },
+    "Office Supplies": {
+        "Total Profit":0,
+    },
+    "Cosmetics": {
+        "Total Profit":0,
+    },
+    "Snacks": {
+        "Total Profit":0,
+    },
+    "Personal": {
+        "Total Profit":0,
+    },
+    "House Hold": {
+        "Total Profit":0,
+    },
+    "Vegetables": {
+        "Total Profit":0,
+    },
+    "Baby Food": {
+        "Total Profit":0,
+    },
+    "Cereal": {
+        "Total Profit":0
+    }
+}
 
 
 with open("Sales Records.csv", "r") as old_csv:
-    with open("MyNewFile.csv", 'w', newline='') as new_csv:
-        reader = csv.reader(old_csv)
-        writer = csv.writer(new_csv)
-        print("Processing...")
+    reader = csv.reader(old_csv)
+    print("Processing...")
 
-        for row in reader:
-            old_number = row[13]  # String
-            digits = list(old_number)
+    for row in reader:
+        old_number = row[13]  # String
 
+        # Find out what type of item it is
+        item_type = row[2]
+        # Add to different_items
+        different_items[item_type] += old_number
+        print(old_number)
