@@ -47,17 +47,33 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - Total Profit of Sales.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+            <state relative-caret-position="51">
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/notes/Sales Records.csv">
-          <provider selected="true" editor-type-id="LargeFileEditor">
+          <provider selected="true" editor-type-id="csv-data-editor">
             <state>
-              <caret column="21" selection-start-column="21" selection-end-column="21" />
+              <format>
+                <csv-format name="Comma-separated (CSV)" id="Comma-separated (CSV)_id">
+                  <data>
+                    <record-format prefix="" suffix="" nullText="" quotationPolicy="as needed" valueSeparator="," recordSeparator="&#10;">
+                      <quotation>
+                        <quotes left="&quot;" right="&quot;" leftEscaped="&quot;&quot;" rightEscaped="&quot;&quot;" />
+                        <quotes left="'" right="'" leftEscaped="''" rightEscaped="''" />
+                      </quotation>
+                    </record-format>
+                  </data>
+                </csv-format>
+              </format>
+            </state>
+          </provider>
+          <provider editor-type-id="LargeFileEditor">
+            <state relative-caret-position="51">
+              <caret line="3" column="55" lean-forward="true" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
             </state>
           </provider>
         </entry>
@@ -296,12 +312,13 @@
       <workItem from="1557154170831" duration="3305000" />
       <workItem from="1557240572494" duration="1938000" />
       <workItem from="1557326978884" duration="3364000" />
-      <workItem from="1557413483081" duration="3206000" />
+      <workItem from="1557413483081" duration="3246000" />
+      <workItem from="1557504035944" duration="2532000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31283000" />
+    <option name="totallyTimeSpent" value="33855000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -316,7 +333,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4819672" visible="true" weight="0.36567163" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4819672" visible="true" weight="0.36993605" />
       <window_info id="Structure" order="1" sideWeight="0.5180328" side_tool="true" weight="0.30030257" />
       <window_info id="Favorites" order="2" sideWeight="0.50491804" side_tool="true" weight="0.26172465" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -370,7 +387,7 @@
     <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___Validator.coverage" NAME="Elijah Palacios - Validator Coverage Results" MODIFIED="1557156076352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Dictionary_Notes.coverage" NAME="Dictionary Notes Coverage Results" MODIFIED="1557414297072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___World_Map_2_0.coverage" NAME="Elijah Palacios - World Map 2.0 Coverage Results" MODIFIED="1557327211995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
-    <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___Total_Profit_of_Sales.coverage" NAME="Elijah Palacios - Total Profit of Sales Coverage Results" MODIFIED="1557416680542" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
+    <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___Total_Profit_of_Sales.coverage" NAME="Elijah Palacios - Total Profit of Sales Coverage Results" MODIFIED="1557506552141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Object_Notes.coverage" NAME="Object Notes Coverage Results" MODIFIED="1556206979332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
   </component>
   <component name="editorHistoryManager">
@@ -463,16 +480,32 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/notes/Sales Records.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor">
+      <provider selected="true" editor-type-id="csv-data-editor">
         <state>
-          <caret column="21" selection-start-column="21" selection-end-column="21" />
+          <format>
+            <csv-format name="Comma-separated (CSV)" id="Comma-separated (CSV)_id">
+              <data>
+                <record-format prefix="" suffix="" nullText="" quotationPolicy="as needed" valueSeparator="," recordSeparator="&#10;">
+                  <quotation>
+                    <quotes left="&quot;" right="&quot;" leftEscaped="&quot;&quot;" rightEscaped="&quot;&quot;" />
+                    <quotes left="'" right="'" leftEscaped="''" rightEscaped="''" />
+                  </quotation>
+                </record-format>
+              </data>
+            </csv-format>
+          </format>
+        </state>
+      </provider>
+      <provider editor-type-id="LargeFileEditor">
+        <state relative-caret-position="51">
+          <caret line="3" column="55" lean-forward="true" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - Total Profit of Sales.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="29" column="25" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="25" />
+        <state relative-caret-position="51">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
