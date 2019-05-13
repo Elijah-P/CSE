@@ -115,10 +115,8 @@ class Monay(Currency):
         super(Currency, self).__init__("Monay", "Can be used at a shop")
         self.count = 0
 
-#########
+
 # HEALING
-
-
 class HealingItem(Item):
     def __init__(self, name, description):
         super(HealingItem, self).__init__(name, description)
@@ -151,9 +149,9 @@ class Horse(Item):
 
     def go_slower(self):
         self.speed -= 10
+
+
 # WEAPONS
-
-
 class Weapon(Interactable):
     def __init__(self, name, description, damage):
         super(Weapon, self).__init__(name, description)
@@ -183,16 +181,17 @@ class BowAndArrow(Weapon):
 class AXE(Weapon):
     def __init__(self):
         super(AXE, self).__init__("A powerful Axe", "Can be swung with immense power", 100)
+
+
 # SWITCH
-
-
 class Catcus(Switches):
     def __init__(self):
         super(Catcus, self).__init__("Cactus", "Total ordinary cactus. Though there does look like a lever is "
+        
                                                "attached, maybe you could flip it..")
+
+
 # HORSES
-
-
 class BlackHorse(Horse):
     def __init__(self):
         super(BlackHorse, self).__init__("Roger", "He is black and seems stubborn. Reminds you of pigs...",
@@ -215,9 +214,8 @@ class Key(Interactable):
     def __init__(self):
         super(Key, self).__init__("Key", "Can be used to unlock doors")
 
+
 # GAME CONTROLLERS
-
-
 class Controller(Interactable):
     def __init__(self, name, description, color, controller_type):
         super(Controller, self).__init__(name, description)
@@ -241,9 +239,9 @@ class ProController(Controller):
     def __init__(self):
         super(ProController, self).__init__("Pro Controller", "It's a somewhat black wireless Xbox styled "
                                             "controller.", "Blackish Gray", "Wireless")
+
+
 # ENTITIES
-
-
 class Character(object):
     def __init__(self, name, health, weapon, armor):
         self.name = name
@@ -344,9 +342,8 @@ class HorseShop(Shop):
             }
         }
 
+
 # items
-
-
 my_key = Key()
 my_GamecubeController = GamecubeController()
 my_Joycons = Joycons()

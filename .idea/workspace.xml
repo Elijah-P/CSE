@@ -35,45 +35,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notes/Dictionary Notes.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="12" selection-start-line="8" selection-start-column="12" selection-end-line="8" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - Total Profit of Sales.py">
+        <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - World Map 2.0 ShowCase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" selection-start-line="3" selection-end-line="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/notes/Sales Records.csv">
-          <provider selected="true" editor-type-id="csv-data-editor">
-            <state>
-              <format>
-                <csv-format name="Comma-separated (CSV)" id="Comma-separated (CSV)_id">
-                  <data>
-                    <record-format prefix="" suffix="" nullText="" quotationPolicy="as needed" valueSeparator="," recordSeparator="&#10;">
-                      <quotation>
-                        <quotes left="&quot;" right="&quot;" leftEscaped="&quot;&quot;" rightEscaped="&quot;&quot;" />
-                        <quotes left="'" right="'" leftEscaped="''" rightEscaped="''" />
-                      </quotation>
-                    </record-format>
-                  </data>
-                </csv-format>
-              </format>
-            </state>
-          </provider>
-          <provider editor-type-id="LargeFileEditor">
-            <state relative-caret-position="51">
-              <caret line="3" column="55" lean-forward="true" selection-start-line="3" selection-start-column="55" selection-end-line="3" selection-end-column="55" />
+            <state relative-caret-position="45">
+              <caret line="541" column="53" lean-forward="true" selection-start-line="541" selection-start-column="53" selection-end-line="541" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -105,9 +71,9 @@
         <option value="$PROJECT_DIR$/notes/NEW NOTES.py" />
         <option value="$PROJECT_DIR$/notes/Book1.csv" />
         <option value="$PROJECT_DIR$/notes/MyNewFile.csv" />
-        <option value="$PROJECT_DIR$/notes/Elijah Palacios - World Map 2.0.py" />
         <option value="$PROJECT_DIR$/notes/Elijah Palacios - Validator.py" />
         <option value="$PROJECT_DIR$/notes/Elijah Palacios - Total Profit of Sales.py" />
+        <option value="$PROJECT_DIR$/notes/Elijah Palacios - World Map 2.0.py" />
       </list>
     </option>
   </component>
@@ -143,13 +109,16 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Sales Records.csv" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/notes" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jvf8\Documents\GitHub\CSE\notes" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jvf8\Documents\GitHub\CSE\notes" />
     </key>
@@ -166,7 +135,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Elijah Palacios - Total Profit of Sales">
+  <component name="RunManager" selected="Python.Elijah Palacios - World Map 2.0 ShowCase">
     <configuration name="Dictionary Notes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CSE" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -233,6 +202,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="Elijah Palacios - World Map 2.0 ShowCase" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="CSE" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/notes" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/notes/Elijah Palacios - World Map 2.0 ShowCase.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="Elijah Palacios - World Map 2.0" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="CSE" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -255,42 +246,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="NEW NOTES" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="CSE" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/notes" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/notes/NEW NOTES.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.Elijah Palacios - World Map 2.0" />
-      <item itemvalue="Python.NEW NOTES" />
       <item itemvalue="Python.Elijah Palacios - Validator" />
       <item itemvalue="Python.Elijah Palacios - Total Profit of Sales" />
       <item itemvalue="Python.Dictionary Notes" />
+      <item itemvalue="Python.Elijah Palacios - World Map 2.0 ShowCase" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Elijah Palacios - World Map 2.0 ShowCase" />
         <item itemvalue="Python.Elijah Palacios - Total Profit of Sales" />
         <item itemvalue="Python.Dictionary Notes" />
         <item itemvalue="Python.Elijah Palacios - World Map 2.0" />
         <item itemvalue="Python.Elijah Palacios - Validator" />
-        <item itemvalue="Python.NEW NOTES" />
       </list>
     </recent_temporary>
   </component>
@@ -313,12 +282,13 @@
       <workItem from="1557240572494" duration="1938000" />
       <workItem from="1557326978884" duration="3364000" />
       <workItem from="1557413483081" duration="3246000" />
-      <workItem from="1557504035944" duration="2532000" />
+      <workItem from="1557504035944" duration="2680000" />
+      <workItem from="1557759027047" duration="3106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33855000" />
+    <option name="totallyTimeSpent" value="37109000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -331,14 +301,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4819672" visible="true" weight="0.36993605" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4819672" visible="true" weight="0.37420043" />
       <window_info id="Structure" order="1" sideWeight="0.5180328" side_tool="true" weight="0.30030257" />
       <window_info id="Favorites" order="2" sideWeight="0.50491804" side_tool="true" weight="0.26172465" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.45287108" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.9674973" />
       <window_info anchor="bottom" id="TODO" order="3" weight="0.3295082" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
@@ -386,8 +355,9 @@
     <SUITE FILE_PATH="coverage/CSE$NEW_NOTES.coverage" NAME="NEW NOTES Coverage Results" MODIFIED="1556723805002" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___Validator.coverage" NAME="Elijah Palacios - Validator Coverage Results" MODIFIED="1557156076352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Dictionary_Notes.coverage" NAME="Dictionary Notes Coverage Results" MODIFIED="1557414297072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
+    <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___World_Map_2_0_ShowCase.coverage" NAME="Elijah Palacios - World Map 2.0 ShowCase Coverage Results" MODIFIED="1557761209147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___World_Map_2_0.coverage" NAME="Elijah Palacios - World Map 2.0 Coverage Results" MODIFIED="1557327211995" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
-    <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___Total_Profit_of_Sales.coverage" NAME="Elijah Palacios - Total Profit of Sales Coverage Results" MODIFIED="1557506552141" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
+    <SUITE FILE_PATH="coverage/CSE$Elijah_Palacios___Total_Profit_of_Sales.coverage" NAME="Elijah Palacios - Total Profit of Sales Coverage Results" MODIFIED="1557760700671" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
     <SUITE FILE_PATH="coverage/CSE$Object_Notes.coverage" NAME="Object Notes Coverage Results" MODIFIED="1556206979332" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/notes" />
   </component>
   <component name="editorHistoryManager">
@@ -458,13 +428,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - World Map 2.0.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="575" column="75" selection-start-line="575" selection-start-column="75" selection-end-line="575" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - Validator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="447">
@@ -502,10 +465,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - World Map 2.0 - Showcase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="503" column="83" lean-forward="true" selection-start-line="503" selection-start-column="83" selection-end-line="503" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - Total Profit of Sales.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
+        <state relative-caret-position="459">
+          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - World Map 2.0.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="59">
+          <caret line="559" column="5" selection-start-line="559" selection-start-column="5" selection-end-line="559" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/notes/Elijah Palacios - World Map 2.0 ShowCase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="541" column="53" lean-forward="true" selection-start-line="541" selection-start-column="53" selection-end-line="541" selection-end-column="53" />
         </state>
       </provider>
     </entry>

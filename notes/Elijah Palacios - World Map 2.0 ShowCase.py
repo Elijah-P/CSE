@@ -13,9 +13,6 @@ def take(_item_name):
         print("You can't pick it up")
 
 
-#   def plug_in(_item_name):
-
-
 def equip(_item_name):
     _found_item = None
     for _item in player.inventory:
@@ -86,7 +83,7 @@ class Shop(Building):
     def ask(self):
         print("Welcome to %s, do you want to buy something" % self.name)
         _command = input(">")
-        if _command in ["buy", "b", "purchase"]:
+        if _command in ["buy", "yes", "yeah", "Yes", "Yeah", "b", "purchase"]:
             print("Here's what we have in store;")
             for item in self.storage:
                 print(self.storage[item]["Name"] + " - " + str(self.storage[item]["Cost"]) + "$")
@@ -94,7 +91,7 @@ class Shop(Building):
             for i, thing in enumerate(self.storage.keys()):
                 if self.storage[thing]["Name"] == request:
                     customer_i = input("Do you want the %s" % self.storage[thing]["Name"])
-                    if customer_i in ["Yes", "confirm", "affirmative"]:
+                    if customer_i in ["Yes", "yes", "yeah", "Yeah", "Yea", "yea", "confirm", "affirmative"]:
                         if player.money >= self.storage[thing]["Cost"]:
                             print("You have purchased it for %d Money" % self.storage[thing]["Cost"])
                             player.money -= self.storage[thing]["Cost"]
@@ -118,11 +115,9 @@ class Monay(Currency):
         super(Currency, self).__init__("Monay", "Can be used at a shop")
         self.count = 0
 
-#########
+
 # HEALING
-
-
-class HealingItem(Interactable):
+class HealingItem(Item):
     def __init__(self, name, description):
         super(HealingItem, self).__init__(name, description)
 
@@ -154,9 +149,9 @@ class Horse(Item):
 
     def go_slower(self):
         self.speed -= 10
+
+
 # WEAPONS
-
-
 class Weapon(Interactable):
     def __init__(self, name, description, damage):
         super(Weapon, self).__init__(name, description)
@@ -186,16 +181,17 @@ class BowAndArrow(Weapon):
 class AXE(Weapon):
     def __init__(self):
         super(AXE, self).__init__("A powerful Axe", "Can be swung with immense power", 100)
+
+
 # SWITCH
-
-
 class Catcus(Switches):
     def __init__(self):
         super(Catcus, self).__init__("Cactus", "Total ordinary cactus. Though there does look like a lever is "
+        
                                                "attached, maybe you could flip it..")
+
+
 # HORSES
-
-
 class BlackHorse(Horse):
     def __init__(self):
         super(BlackHorse, self).__init__("Roger", "He is black and seems stubborn. Reminds you of pigs...",
@@ -204,7 +200,7 @@ class BlackHorse(Horse):
 
 class WhiteHorse(Horse):
     def __init__(self):
-        super(WhiteHorse, self).__init__("Tyrone.", "He is white and seems stuck up. Reminds you of a hairless cats...",
+        super(WhiteHorse, self).__init__("Tyrone", "He is white and seems stuck up. Reminds you of a hairless cats...",
                                          speed=30)
 
 
@@ -218,9 +214,8 @@ class Key(Interactable):
     def __init__(self):
         super(Key, self).__init__("Key", "Can be used to unlock doors")
 
+
 # GAME CONTROLLERS
-
-
 class Controller(Interactable):
     def __init__(self, name, description, color, controller_type):
         super(Controller, self).__init__(name, description)
@@ -244,9 +239,9 @@ class ProController(Controller):
     def __init__(self):
         super(ProController, self).__init__("Pro Controller", "It's a somewhat black wireless Xbox styled "
                                             "controller.", "Blackish Gray", "Wireless")
+
+
 # ENTITIES
-
-
 class Character(object):
     def __init__(self, name, health, weapon, armor):
         self.name = name
@@ -334,6 +329,16 @@ class HorseShop(Shop):
                 "Name": my_goldenhorse.name,
                 "Cost": 30,
                 "ID": my_goldenhorse
+            },
+            "Stock4": {
+                "Name": healing.name,
+                "Cost": 15,
+                "ID": healing
+            },
+            "Stock5": {
+                "Name": my_knife.name,
+                "Cost": 10,
+                "ID": my_knife
             }
         }
 
@@ -352,25 +357,24 @@ my_knife = Knife()
 my_bow = BowAndArrow()
 my_axe = AXE()
 my_gloves = BoxingGloves()
+healing = Bandaids()
 my_shop = HorseShop("Pikachu Horse Shop")
 Money = Monay()
-healing = Bandaids()
-
 ogre = Bigboss("Shrek", 300, my_axe, "Looks like Shrek,..ugly.")
 
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
               "A 10K TV is in front of you with SmashBros on. "
-              "There are 8 open spots to play, but no controllers. "
+              "There are 3 open spots to play, but no controllers. \n"
               "There are 3 different ways to go.", None, 0, None, [my_GamecubeController, my_Joycons, my_ProController])
 
 portal = Room("Entrance to portal.", None, "mountains", None, "center", None, None,
-              "A weird portal(looking like a nether portal from minecraft). "
+              "A weird portal(looking like a nether portal from minecraft). \n"
               "You feel a cold breeze coming from the other side.", None, 50)
 
 mountains = Room("Middle of snowy mountain", "peak_of_mountain", "cavern", "base_of_mountain", "portal", None, None,
                  "The portal led to the middle of a mountain. "
-                 "You see the peak and base of the mountain. "
-                 "You also see a cavern east.", None, 25)
+                 "You see the peak and base of the mountain. \n"
+                 "You also see a cavern east.\n", None, 25)
 
 peak_of_mountain = Room("Peak of The Snowy Mountain", None, None, "mountains", None, None, None,
                         "You climbed up the mountain. "
@@ -378,76 +382,63 @@ peak_of_mountain = Room("Peak of The Snowy Mountain", None, None, "mountains", N
 
 cavern = Room("Inside the cavern", None, None, None, "mountains", None, None,
               "You see this buff, ripped Pikachu behind the counter. "
-              "It is the owner of this shop. "
+              "It is the owner of this shop. \n"
               "It yells 'PIKA PIKA' in a deep voice. "
               "You see a horse. It looks wounded.", None, 0, None, None, my_shop)
 
 base_of_mountain = Room("The base of the Snowy Mountain", "mountains", None, None, None, None, None,
                         "You climbed down the mountain. "
-                        "You see an entrance with a staircase leading down.")
+                        "You see an entrance with a staircase leading down. Too bad it's boarded up.")
 
 forest = Room("Entrance to Forest", "inside_forest", None, "center", None, None, None,
               "There is a sign saying, 'D-NT -ET -OST.' "
               "Letters are missing on the sign. Fog surrounds the entrance.")
 
-inside_forest = Room("Inside the Forest.", "Boss", "Lost_Woods", "Forest", "Dungeon", None, None,
+inside_forest = Room("Inside the Forest.", "Boss", "Lost_Woods", "forest", "Dungeon", None, None,
                      "There are 3 paths. "
                      "You hear a roaring noise from the northern path")
 
 Lost_Woods = Room("Lost Woods", None, "L1", None, "inside_forest", None, None,
                   "There are a lot of paths. "
-                  "Seems like if you go the wrong way you'll be brought back to the entrance")
+                  "Seems like if you go the wrong way you'll be brought back to the entrance, You can go west to leave"
+                  " this area")
 
-L1 = Room("Lost_Woods", "Lost_Woods", "L2", "Lost_Woods", "Lost_Woods", None, None, "")
+L1 = Room("Lost_Woods", "Lost_Woods", "L2", "Lost_Woods", "Lost_Woods", None, None, "First room of the maze")
 
-L2 = Room("Lost_Woods", "Lost_Woods", "Lost_Woods", "L3", "Lost_Woods", None, None, "")
+L2 = Room("Lost_Woods", "Lost_Woods", "Lost_Woods", "L3", "Lost_Woods", None, None, "Second room of the maze")
 
-L3 = Room("Lost_Woods", "L4", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None, "")
+L3 = Room("Lost_Woods", "Lost_Woods", "L4", "Lost_Woods", "Lost_Woods", None, None, "Third room of the maze")
 
-L4 = Room("Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "L5", None, None, "")
-
-L5 = Room("Lost_Woods", "Lost_Woods", "Lost_Woods", "L6", "Lost_Woods", None, None, "")
-
-L6 = Room("Lost_Woods", "L7", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None, "")
-
-L7 = Room("End of Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None,
-          "You have found a key on the floor, could be used somewhere else here in the forest. "
+L4 = Room("End of Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None,
+          "You have found a key on the floor, could be used somewhere else here in the forest. \n"
           "To leave, you assume you can take any direction to be taken back to the entrance of the lost woods.", my_key)
 
-Dungeon = Room("Dungeon", None, "inside_forest", None, None, None, None,
+Dungeon = Room("Dungeon", None, "inside_forest", "D1", None, None, None,
                "You're inside a dark somewhat smelly dungeon."
                " Careful, traps might be here. To go through you would need a key to enter.")
-# Path is D3, D5, D7, D8, D9
 
-D1 = Room("Dungeon", "D3", "D6", None, "D4", None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
+D1 = Room("Room 1", "Dungeon", "D2", None, "D3", None, None, "You see that there are three teleporters here, "
+                                                             "one to the north, east, and west")
 
-D2 = Room("Dungeon", "D7", "D5", None, "D6", None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
+D2 = Room("Room 2", "D1", "D3", None, "D4", None, None, "You see that there are three teleporters here, one to the"
+                                                        " north, east, and west")
 
-D3 = Room("Dungeon", "D1", "D8", None, "D5", None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
+D3 = Room("Room 3", "D2", "D1", None, "D4", None, None, "You see that there are three teleporters here, one to the"
+                                                        " north, east, and west")
 
-D4 = Room("Dungeon", "D7", "D2", None, "D6", None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
+D4 = Room("Room 4", "D2", "D5", None, "D1", None, None, "You see that there are three teleporters here, one to the"
+                                                        " north, east, and west")
 
-D5 = Room("Dungeon", "D3", "D7", None, "D1", None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
+D5 = Room("Room 5", "inside_forest", "D6", None, "D7", None, None, "You see that there is one teleporter here to the "
+                                                                   "north that leads back outside of the dungeon\n"
+                                                                   "There is also a room to East and West", my_sword)
 
-D6 = Room("Dungeon", "D1", "D8", None, "D2", None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
+D6 = Room("Room 6", None, None, None, "D5", None, None, "It's just a blank room. Go back west", my_axe)
 
-D7 = Room("Dungeon", "D8", "D4", None, "D2", None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
-
-D8 = Room("Dungeon", "D3", "D5", "D9", "D4", None, None, "You see that there are three teleporters here, one to the"
-                                                         " north, east, and west")
-
-D9 = Room("Dungeon", "inside_forest", None, None, None, None, None, "You see that there are three teleporters here, one"
-                                                                    " to the north, east, and west")
+D7 = Room("Room 7", None, "D5", None, None, None, None, "It's a more colorful room", my_bow)
 
 Boss = Room("Boss Room.", "Chest", None, "inside_forest", None, None, None,
-            "You see a big ogre. "
+            "You see a big ogre. His name is Shrek"
             "He is breathing heavily and has a wound on his leg.", None, 0)
 
 Chest = Room("In front of treasure chest", None, None, "Boss", None, None, None,
@@ -456,7 +447,7 @@ Chest = Room("In front of treasure chest", None, None, "Boss", None, None, None,
 
 Desert = Room("Desert", "Front_of_Pyramid", "center", "Oasis", "Cactus", None, None,
               "You walked far enough and are now in a desert. "
-              "It's really hot and you could possibly die staying in here to long."
+              "It's really hot and you could possibly die staying in here to long.\n"
               "You would need some type of animal to travel through the desert without dying of exhaustion")
 
 Oasis = Room("???", "Desert", None, "Spikes", None, None, None,
@@ -464,10 +455,10 @@ Oasis = Room("???", "Desert", None, "Spikes", None, None, None,
              "You have the urge to jump in. Just got to go south...")
 
 Spikes = Room("Spikes/Ded", None, None, None, None, None, None,
-              "You died after jumping into the 'water', but can't be blamed. "
-              "You were dizzy, super hot, wanted water to satisfy you. Sadly you died."
+              "You died after jumping into the 'water', but can't be blamed. \n"
+              "You were dizzy, super hot, wanted water to satisfy you. Sadly you died.\n"
               "No one will miss you, and this adventure is over super quickly."
-              "Ha. Ha. HAAAAAaaa..."
+              "Ha. Ha. HAAAAAaaa...\n"
               "OK time to try again.")
 
 Cactus = Room("In front of a cactus", None, "Desert", None, None, None, None,
@@ -476,8 +467,8 @@ Cactus = Room("In front of a cactus", None, "Desert", None, None, None, None,
 Front_of_Pyramid = Room("In front of Upside down Pyramid", "Inside_pyramid", "Right_of_Pyramid", "Desert",
                         "Left_of_Pyramid", None, None,
                         "The pyramid is somewhat buried inside the sand."
-                        "You see the entrance but can't enter it. "
-                        "The door seems slammed shut, but no where to open it."
+                        "You see the entrance but can't enter it. \n"
+                        "The door seems slammed shut, but no where to open it.\n"
                         "Oh well? Might as well go back..")
 
 Right_of_Pyramid = Room("Right of Pyramid", None, "Back_of_Pyramid", None, "Front_of_Pyramid", None, None, "")
@@ -487,27 +478,25 @@ Left_of_Pyramid = Room("Left of Pyramid", None, "Front_of_Pyramid", None, "Back_
 Back_of_Pyramid = Room("Back of Pyramid", None, "Left_of_Pyramid", None, "Right_of_Pyramid", None, None, "")
 
 Inside_pyramid = Room("Inside the Pyramid", None, "P1", "Front_of_Pyramid", None, None, None,
-                      "Surprisingly you're inside and it's actually pretty dull."
-                      "You see ladders around leading 'UP' to a hole in the ceiling."
+                      "Surprisingly you're inside and it's actually pretty dull.\n"
+                      "You see ladders around leading 'UP' to a hole in the ceiling.\n"
                       "Looks like a lot of floors.")
 
-P1 = Room("Inside the Pyramid", None, None, None, "Inside_pyramid", "P2", None, "")
+P1 = Room("First Floor", None, None, None, "Inside_pyramid", "P2", None, "")
 
-P2 = Room("Inside the Pyramid", "P3", None, None, None, None, "P1", "")
+P2 = Room("Second Floor", "P3", None, None, None, None, "P1", "")
 
-P3 = Room("Inside the Pyramid", None, None, "P2", "P4", None, None, "")
+P3 = Room("North of Second Floor", None, None, "P2", "P4", None, None, "")
 
-P4 = Room("Inside the Pyramid", None, "P3", None, None, "P5", None, "")
+P4 = Room("West of Second Floor", None, "P3", None, None, "Top_of_Pyramid", None, "")
 
-P5 = Room("Inside the Pyramid", "P6", None, None, None, None, "P4", "")
+Top_of_Pyramid = Room("Top of Pyramid", None, None, None, None, None, "Pool",
+                      "You are on top of the upside down pyramid, weird.\n"
+                      "To get down you can jump down into this pool you"
+                      "see\nat the very bottom. It looks deep enough to survive.", my_GamecubeController)
 
-P6 = Room("Inside the Pyramid", None, None, "P5", None, "Top_of_Pyramid", None, "")
-
-Top_of_Pyramid = Room("Top of Pyramid", None, None, None, None, None, "P6",
-                      "You are on top of the upside down pyramid, weird. You see the game controller in front of you."
-                      "To get down there are two ways. You can go through the pyramid, or jump into this pool you see "
-                      "at the very bottom. It looks deep enough to survive.", my_GamecubeController)
-
+Pool = Room("Pool", None, None, None, None, "Desert", None, "You fell into the pool from the pyramid, just go up this "
+                                                            "hill to arrive at the entrance to the desert")
 Boss.enemy = ogre
 # players
 player = Player("You", 999, my_gloves, center)
@@ -529,8 +518,9 @@ while playing:
         print("There is a %s in here" % player.current_location.item.name)
     if player.current_location.money is not None:
         print("There is $%d here" % player.current_location.money)
-    if player.current_location == Spikes:
-        playing = False
+    if player.current_location is cavern:
+        print("There is a shop in here, to use the shop, type 'shop'\n"
+              "WHen typing the item you want, make sure you type it the exact way you see it.")
     command = input(">_")
     if command in short_directions:
         pos = short_directions.index(command.lower())
@@ -575,10 +565,12 @@ while playing:
         else:
             print("You have no items")
     elif command.lower() in ["h", "help"]:
+        print("To move around type 'North, South, East, or West. To make it easier you can type the first letter of "
+              "each direction")
+        print("To print the description of a location again, type look or L")
         print("To pick up things type 'take and the item's name' or 'pick up and the item's name'")
         print("To take money type 'take money', or 'get money'")
-        print("To move around type 'North, South, West, or South. To make it easier you can type the first letter of "
-              "each direction")
+        print("To check Inventory type 'I', 'check bag', 'b' or 'inventory'")
         print("To attack an enemy, type attack and the enemy's name")
 
     elif "equip" in command:
