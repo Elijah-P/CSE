@@ -303,7 +303,7 @@ class Bigboss(Character):
         self.health -= damage
         if self.health < 0:
             self.health = 0
-            print("%s is dead" % ogre)
+            print("%s is dead" % ogre.name)
         print("%s has %d health left" % (self.name, self.health))
 
     def attack(self, target):
@@ -438,7 +438,7 @@ D6 = Room("Room 6", None, None, None, "D5", None, None, "It's just a blank room.
 D7 = Room("Room 7", None, "D5", None, None, None, None, "It's a more colorful room", my_bow)
 
 Boss = Room("Boss Room.", "Chest", None, "inside_forest", None, None, None,
-            "You see a big ogre. His name is Shrek"
+            "You see a big ogre. His name is Shrek "
             "He is breathing heavily and has a wound on his leg.", None, 0)
 
 Chest = Room("In front of treasure chest", None, None, "Boss", None, None, None,
@@ -507,7 +507,10 @@ short_directions = ["n", "s", "e", "w", "u", "d"]
 
 print("")
 print("Type h or help to see the controls for playing the game.")
+
+
 # Controller
+boss_dead = False
 while playing:
     print("")
     player.current_location.visit += 1
@@ -525,14 +528,14 @@ while playing:
     if command in short_directions:
         pos = short_directions.index(command.lower())
         command = directions[pos]
-#   if current_node == world_map['CHEST']: # CHANGING DESCRIPTION
-#    world_map["BOSS"]["DESCRIPTION"] = "Boss is dead"  # BOSSES ^
     if command.lower() in ["q", "quit", "exit"]:
         playing = False
     elif command.lower() in directions:
         try:
-            room_name = getattr(player.current_location, command)
+            room_name = getattr(player.current_location, command.lower())
             room_object = globals()[room_name]
+            if not boss_dead and room_object == Chest:
+                raise KeyError
             player.move(room_object)
         except KeyError:
             print("I can't go that way.")
@@ -551,7 +554,10 @@ while playing:
         if issubclass(type(current_target), Character):
             player.attack(current_target)
             print("")
-            current_target.attack(player)
+            if current_target.health > 0:
+                current_target.attack(player)
+            elif current_target == ogre:
+                boss_dead = True
             print("")
         elif current_target is None:
             print("That doesnt exist!")
@@ -565,10 +571,11 @@ while playing:
         else:
             print("You have no items")
     elif command.lower() in ["h", "help"]:
-        print("To move around type 'North, South, East, or West. To make it easier you can type the first letter of "
+        print("To move around type \"North\", South, East, or West. To make it easier you can type the first letter of "
               "each direction")
         print("To print the description of a location again, type look or L")
         print("To pick up things type 'take and the item's name' or 'pick up and the item's name'")
+        print("To equip items, type 'equip and the item's' name.")
         print("To take money type 'take money', or 'get money'")
         print("To check Inventory type 'I', 'check bag', 'b' or 'inventory'")
         print("To attack an enemy, type attack and the enemy's name")
