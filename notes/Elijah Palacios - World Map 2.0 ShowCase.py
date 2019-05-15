@@ -403,11 +403,11 @@ Lost_Woods = Room("Lost Woods", None, "L1", None, "inside_forest", None, None,
                   "Seems like if you go the wrong way you'll be brought back to the entrance, You can go west to leave"
                   " this area")
 
-L1 = Room("Lost_Woods", "Lost_Woods", "L2", "Lost_Woods", "Lost_Woods", None, None, "First room of the maze")
+L1 = Room("First room of", "Lost_Woods", "L2", "Lost_Woods", "Lost_Woods", None, None, "First room of the maze")
 
-L2 = Room("Lost_Woods", "Lost_Woods", "Lost_Woods", "L3", "Lost_Woods", None, None, "Second room of the maze")
+L2 = Room("Second room of Lost Woods", "Lost_Woods", "Lost_Woods", "L3", "Lost_Woods", None, None, None)
 
-L3 = Room("Lost_Woods", "Lost_Woods", "L4", "Lost_Woods", "Lost_Woods", None, None, "Third room of the maze")
+L3 = Room("Third room of Lost Woods", "Lost_Woods", "L4", "Lost_Woods", "Lost_Woods", None, None, None)
 
 L4 = Room("End of Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None,
           "You have found a key on the floor, could be used somewhere else here in the forest. \n"
@@ -511,6 +511,7 @@ print("Type h or help to see the controls for playing the game.")
 
 # Controller
 boss_dead = False
+have_key = False
 while playing:
     print("")
     player.current_location.visit += 1
@@ -536,6 +537,8 @@ while playing:
             room_object = globals()[room_name]
             if not boss_dead and room_object == Chest:
                 raise KeyError
+            if not have_key and room_object == D1:
+                raise KeyError
             player.move(room_object)
         except KeyError:
             print("I can't go that way.")
@@ -558,6 +561,8 @@ while playing:
                 current_target.attack(player)
             elif current_target == ogre:
                 boss_dead = True
+        if my_key in player.inventory:
+            have_key = True
             print("")
         elif current_target is None:
             print("That doesnt exist!")
