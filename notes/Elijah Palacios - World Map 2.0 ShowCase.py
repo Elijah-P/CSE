@@ -403,11 +403,11 @@ Lost_Woods = Room("Lost Woods", None, "L1", None, "inside_forest", None, None,
                   "Seems like if you go the wrong way you'll be brought back to the entrance, You can go west to leave"
                   " this area")
 
-L1 = Room("First room of", "Lost_Woods", "L2", "Lost_Woods", "Lost_Woods", None, None, "First room of the maze")
+L1 = Room("First room of Lost Woods", "Lost_Woods", "L2", "Lost_Woods", "Lost_Woods", None, None, "")
 
-L2 = Room("Second room of Lost Woods", "Lost_Woods", "Lost_Woods", "L3", "Lost_Woods", None, None, None)
+L2 = Room("Second room of Lost Woods", "Lost_Woods", "Lost_Woods", "L3", "Lost_Woods", None, None, "")
 
-L3 = Room("Third room of Lost Woods", "Lost_Woods", "L4", "Lost_Woods", "Lost_Woods", None, None, None)
+L3 = Room("Third room of Lost Woods", "Lost_Woods", "L4", "Lost_Woods", "Lost_Woods", None, None, "")
 
 L4 = Room("End of Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", None, None,
           "You have found a key on the floor, could be used somewhere else here in the forest. \n"
@@ -462,7 +462,8 @@ Spikes = Room("Spikes/Ded", None, None, None, None, None, None,
               "OK time to try again.")
 
 Cactus = Room("In front of a cactus", None, "Desert", None, None, None, None,
-              "You are in front of a totally normal cactus.", secret_Cactus)
+              "You are in front of a totally normal cactus.\n"
+              "You should try hitting the cactus", secret_Cactus)
 
 Front_of_Pyramid = Room("In front of Upside down Pyramid", "Inside_pyramid", "Right_of_Pyramid", "Desert",
                         "Left_of_Pyramid", None, None,
@@ -512,6 +513,7 @@ print("Type h or help to see the controls for playing the game.")
 # Controller
 boss_dead = False
 have_key = False
+cactus_switch = False
 while playing:
     print("")
     player.current_location.visit += 1
@@ -539,6 +541,8 @@ while playing:
                 raise KeyError
             if not have_key and room_object == D1:
                 raise KeyError
+            if not cactus_switch and room_object == Inside_pyramid:
+                raise KeyError
             player.move(room_object)
         except KeyError:
             print("I can't go that way.")
@@ -548,6 +552,7 @@ while playing:
         player.money += player.current_location.money
         print("You picked up $%d" % player.current_location.money)
         player.current_location.money = 0
+
     elif "attack" in command:
         new_target = command[7:]
         current_target = None
@@ -561,9 +566,6 @@ while playing:
                 current_target.attack(player)
             elif current_target == ogre:
                 boss_dead = True
-        if my_key in player.inventory:
-            have_key = True
-            print("")
         elif current_target is None:
             print("That doesnt exist!")
         else:
@@ -605,9 +607,18 @@ while playing:
         item_name = command[11:]
         drop(item_name)
 
+    elif "hit cactus" in command:
+        item_name = command[5:]
+        secret_Cactus.turn_on()
+        cactus_switch = True
+
     elif command.lower() in ["shop", "buy"]:
         if isinstance(player.current_location.shop, Shop):
             player.current_location.shop.ask()
 
     else:
         print("Command Not Recognized")
+
+    if not have_key and my_key in player.inventory:
+        have_key = True
+        print("")
