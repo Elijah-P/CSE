@@ -69,6 +69,15 @@ class Interactable(Item):
         super(Interactable, self).__init__(name, description)
 
 
+class Tv(Item):
+    def __init__(self):
+        super(Tv, self).__init__("10K TV", None)
+        self.play = False
+
+    def play_tv(self):
+        self.play = True
+
+
 class Building(object):
     def __init__(self, name):
         self.name = name
@@ -112,7 +121,7 @@ class Currency(Interactable):
 
 class Monay(Currency):
     def __init__(self):
-        super(Currency, self).__init__("Monay", "Can be used at a shop")
+        super(Monay, self).__init__("Monay", "Can be used at a shop")
         self.count = 0
 
 
@@ -360,12 +369,13 @@ my_gloves = BoxingGloves()
 healing = Bandaids()
 my_shop = HorseShop("Pikachu Horse Shop")
 Money = Monay()
+the_tv = Tv()
 ogre = Bigboss("Shrek", 300, my_axe, "Looks like Shrek,..ugly.")
 
 center = Room("Center of The World.", "forest", "portal", None, "Desert", None, None,
               "A 10K TV is in front of you with SmashBros on. "
-              "There are 3 open spots to play, but no controllers. \n"
-              "There are 3 different ways to go.", None, 0, None, [my_GamecubeController, my_Joycons, my_ProController])
+              "There are 3 open spots to play, but no controllers. If you had 3 controllers, you could maybe \"play\"\n"
+              "the game. There are 3 different ways to go.", the_tv, 0, None,)
 
 portal = Room("Entrance to portal.", None, "mountains", None, "center", None, None,
               "A weird portal(looking like a nether portal from minecraft). \n"
@@ -399,7 +409,7 @@ inside_forest = Room("Inside the Forest.", "Boss", "Lost_Woods", "forest", "Dung
                      "You hear a roaring noise from the northern path")
 
 Lost_Woods = Room("Lost Woods", None, "L1", None, "inside_forest", None, None,
-                  "There are a lot of paths. "
+                  "There are a lot of paths. Go East to enter the Woods\n"
                   "Seems like if you go the wrong way you'll be brought back to the entrance, You can go west to leave"
                   " this area")
 
@@ -415,7 +425,7 @@ L4 = Room("End of Lost Woods", "Lost_Woods", "Lost_Woods", "Lost_Woods", "Lost_W
 
 Dungeon = Room("Dungeon", None, "inside_forest", "D1", None, None, None,
                "You're inside a dark somewhat smelly dungeon."
-               " Careful, traps might be here. To go through you would need a key to enter.")
+               " Careful, traps might be here. To go through you would need a key to enter through the south door")
 
 D1 = Room("Room 1", "Dungeon", "D2", None, "D3", None, None, "You see that there are three teleporters here, "
                                                              "one to the north, east, and west")
@@ -514,6 +524,7 @@ print("Type h or help to see the controls for playing the game.")
 boss_dead = False
 have_key = False
 cactus_switch = False
+all_controllers = False
 while playing:
     print("")
     player.current_location.visit += 1
@@ -526,7 +537,7 @@ while playing:
         print("There is $%d here" % player.current_location.money)
     if player.current_location is cavern:
         print("There is a shop in here, to use the shop, type 'shop'\n"
-              "WHen typing the item you want, make sure you type it the exact way you see it.")
+              "When typing the item you want, make sure you type it the exact way you see it.")
     command = input(">_")
     if command in short_directions:
         pos = short_directions.index(command.lower())
@@ -553,7 +564,7 @@ while playing:
         print("You picked up $%d" % player.current_location.money)
         player.current_location.money = 0
 
-    elif "attack" in command:
+    elif "attack" in command.lower():
         new_target = command[7:]
         current_target = None
         if player.current_location.enemy is not None:
@@ -576,45 +587,69 @@ while playing:
         for itemy in player.inventory:
             print(itemy.name)
         else:
-            print("You have no items")
+            print("You have no items, or maybe you do? Idk")
     elif command.lower() in ["h", "help"]:
-        print("To move around type \"North\", South, East, or West. To make it easier you can type the first letter of "
-              "each direction")
-        print("To print the description of a location again, type look or L")
-        print("To pick up things type 'take and the item's name' or 'pick up and the item's name'")
-        print("To equip items, type 'equip and the item's' name.")
-        print("To take money type 'take money', or 'get money'")
-        print("To check Inventory type 'I', 'check bag', 'b' or 'inventory'")
-        print("To attack an enemy, type attack and the enemy's name")
+        print("To move around type \"North\", \"South\", \"East\", or \"West\". To make it easier you can type the "
+              "first letter of each direction")
+        print("~~~~~~~~~")
+        print("To print the description of a location again, type \"look\", \"L\", or \"look around\"")
+        print("~~~~~~~~~")
+        print("To pick up things type \"take\" and the \"item's name\" or \"pick up\" and the \"item's name\"")
+        print("~~~~~~~~~")
+        print("To equip items, type \"equip\" and the \"item's name\".")
+        print("~~~~~~~~~")
+        print("To take money type \"take money\", or \"get money\"")
+        print("~~~~~~~~~")
+        print("To check Inventory type \"I\", \"check bag\", \"b\" or \"inventory\"")
+        print("~~~~~~~~~")
+        print("To attack an enemy, type \"attack\" and the \"enemy's name\" the exact way you see it.")
 
-    elif "equip" in command:
+    elif "equip" in command.lower():
         item_name = command[6:]
         equip(item_name)
 
-    elif "pick up" in command:
+    elif "pick up" in command.lower():
         item_name = command[8:]
         take(item_name)
 
-    elif "take" in command:
+    elif "take" in command.lower():
         item_name = command[5:]
         take(item_name)
 
-    elif "drop" in command:
+    elif "drop" in command.lower():
         item_name = command[5:]
         drop(item_name)
 
-    elif "place down" in command:
+    elif "place down" in command.lower():
         item_name = command[11:]
         drop(item_name)
 
-    elif "hit cactus" in command:
-        item_name = command[5:]
-        secret_Cactus.turn_on()
-        cactus_switch = True
+    elif "play" in command.lower():
+        item_name = command[4:]
+        if player.current_location == center:
+            if my_ProController and my_GamecubeController and my_Joycons in player.inventory:
+                the_tv.play_tv()
+                all_controllers = True
+                print("You played some Smashbros and beat the game.")
+                playing = False
+            else:
+                print("This doesn't work here.")
+
+    elif "hit" in command.lower():
+        item_name = command[3:]
+        if player.current_location == Cactus:
+            secret_Cactus.turn_on()
+            cactus_switch = True
+            Front_of_Pyramid.description = "The door is open now, you can go in"
+            Front_of_Pyramid.visit -= 1
+        else:
+            print("This doesn't work here.")
 
     elif command.lower() in ["shop", "buy"]:
         if isinstance(player.current_location.shop, Shop):
             player.current_location.shop.ask()
+        else:
+            print("This doesn't work here.")
 
     else:
         print("Command Not Recognized")
@@ -622,3 +657,6 @@ while playing:
     if not have_key and my_key in player.inventory:
         have_key = True
         print("")
+    if player.current_location is Spikes:
+        print(Spikes.description)
+        playing = False
