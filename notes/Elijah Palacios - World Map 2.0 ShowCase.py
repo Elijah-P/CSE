@@ -113,6 +113,9 @@ class Shop(Building):
                                 print("You only have %d with you" % player.money)
                                 self.ask()
 
+        else:
+            print("I don't understand")
+
 
 class Currency(Interactable):
     def __init__(self, name, description):
@@ -539,7 +542,7 @@ while playing:
         print("There is a shop in here, to use the shop, type 'shop'\n"
               "When typing the item you want, make sure you type it the exact way you see it.")
     command = input(">_")
-    if command in short_directions:
+    if command.lower() in short_directions:
         pos = short_directions.index(command.lower())
         command = directions[pos]
     if command.lower() in ["q", "quit", "exit"]:
@@ -584,8 +587,9 @@ while playing:
     elif command.lower()in ["look", "look around", "l"]:
         print(player.current_location.description)
     elif command.lower() in ["check bag", "i", "b", "inventory"]:
-        for itemy in player.inventory:
-            print(itemy.name)
+        if len(player.inventory) > 0:
+            for itemy in player.inventory:
+                print(itemy.name)
         else:
             print("You have no items, or maybe you do? Idk")
     elif command.lower() in ["h", "help"]:
